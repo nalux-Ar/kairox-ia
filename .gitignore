@@ -1,0 +1,17 @@
+# Notas internas del proyecto (memoria Claude, launch config)
+.claude/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Node (por si en el futuro se agrega build)
+node_modules/
+npm-debug.log*
+.env
+.env.local

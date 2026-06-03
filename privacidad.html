@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Política de Privacidad de KAIROX IA — Información sobre el tratamiento de tus datos personales." />
+  <title>Política de Privacidad — KAIROX IA</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Imagenes/logo.png">
+  <link rel="apple-touch-icon" href="Imagenes/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    /* =============================================
+       VARIABLES + RESET
+    ============================================= */
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-card: #111111;
+      --bg-section-alt: #0d0d0d;
+      --accent: #00d9ff;
+      --accent-2: #87CEEB;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --text-muted: #888888;
+      --accent-border: rgba(0, 217, 255, 0.18);
+      --accent-border-hover: rgba(0, 217, 255, 0.55);
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --transition: all 0.3s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(10, 10, 10, 0.65);
+      transition: background 0.3s, backdrop-filter 0.3s, border-bottom 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    #navbar.scrolled {
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      padding: 9px 22px;
+      border: 1.5px solid var(--accent);
+      border-radius: var(--radius-pill);
+      color: var(--accent) !important;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      color: #0a0a0a !important;
+    }
+
+    .nav-hamburger {
+      display: none;
+      width: 36px;
+      height: 28px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    @media (max-width: 900px) {
+      #navbar { padding: 14px 22px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* Mobile menu */
+    .nav-mobile {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      max-width: 80%;
+      height: 100vh;
+      background: rgba(10, 10, 10, 0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 100px 28px 40px;
+      z-index: 99;
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      border-left: 1px solid rgba(0, 217, 255, 0.15);
+    }
+
+    .nav-mobile.open { right: 0; }
+
+    .mobile-nav-link {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: color 0.25s;
+    }
+
+    .mobile-nav-link:hover { color: var(--accent); }
+
+    .mobile-cta {
+      margin-top: 18px;
+      text-align: center;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      border-radius: var(--radius-pill);
+      padding: 12px 18px;
+    }
+
+    /* =============================================
+       MAIN — PRIVACIDAD
+    ============================================= */
+    main {
+      min-height: calc(100vh - 320px);
+      padding: 140px 24px 80px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .privacy-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .privacy-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .privacy-section {
+      background: #111111;
+      border: 1px solid rgba(0, 217, 255, 0.18);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .privacy-section:hover {
+      border-color: rgba(0, 217, 255, 0.32);
+      box-shadow: 0 10px 28px rgba(0, 217, 255, 0.08);
+    }
+
+    .privacy-section-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #00d9ff;
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .privacy-section-text {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .privacy-section-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 217, 255, 0.4);
+      transition: border-color 0.25s;
+    }
+
+    .privacy-section-text a:hover {
+      border-color: var(--accent);
+    }
+
+    .privacy-back {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .privacy-back-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border: 1.5px solid #00d9ff;
+      color: #00d9ff;
+      background: transparent;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .privacy-back-btn:hover {
+      background: #00d9ff;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 217, 255, 0.25);
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 120px 18px 60px; }
+      .privacy-section { padding: 22px; }
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--bg-base);
+      border-top: 1px solid rgba(0, 217, 255, 0.12);
+      padding-top: 60px;
+    }
+
+    .footer-top-line {
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 217, 255, 0.3) 50%,
+        transparent 100%);
+    }
+
+    .footer-content {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 14px;
+    }
+
+    .footer-tagline {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: color 0.25s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-social {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 217, 255, 0.25);
+      color: var(--accent);
+      font-size: 0.95rem;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+
+    .social-icon:hover {
+      background: rgba(0, 217, 255, 0.12);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 50px auto 0;
+      padding: 24px 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-privacy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: color 0.25s;
+    }
+
+    .footer-privacy:hover { color: var(--accent); }
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVBAR
+  ============================================= -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="nav-logo">
+      <img src="imagenes/logo.png" alt="KAIROX IA — Logo" loading="lazy" />
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#equipo">Equipo</a></li>
+      <li><a href="index.html#contacto" class="nav-cta">Contáctanos</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <a href="index.html#inicio" class="mobile-nav-link">Inicio</a>
+    <a href="index.html#servicios" class="mobile-nav-link">Servicios</a>
+    <a href="index.html#proceso" class="mobile-nav-link">Proceso</a>
+    <a href="index.html#proyectos" class="mobile-nav-link">Proyectos</a>
+    <a href="index.html#equipo" class="mobile-nav-link">Equipo</a>
+    <a href="index.html#contacto" class="mobile-nav-link mobile-cta">Contáctanos</a>
+  </div>
+
+  <!-- =============================================
+       CONTENIDO PRINCIPAL
+  ============================================= -->
+  <main>
+
+    <header class="privacy-header">
+      <h1 class="privacy-title">Política de Privacidad</h1>
+      <p class="privacy-subtitle">Última actualización: Junio 2026</p>
+    </header>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">1. Información que recopilamos</h2>
+      <p class="privacy-section-text">
+        Recopilamos los datos que nos proporcionas directamente al completar el formulario de contacto de nuestro sitio web. Estos datos incluyen tu nombre, dirección de correo electrónico, nombre de tu negocio y el mensaje que nos envías.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">2. Cómo usamos tu información</h2>
+      <p class="privacy-section-text">
+        Utilizamos tus datos exclusivamente para responder a tu consulta y ofrecerte información sobre nuestros servicios. No utilizamos tus datos para ningún otro fin sin tu consentimiento previo.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">3. Protección de tus datos</h2>
+      <p class="privacy-section-text">
+        Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra accesos no autorizados, pérdidas o alteraciones.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">4. Compartir información con terceros</h2>
+      <p class="privacy-section-text">
+        No compartimos tu información personal con terceros, salvo que sea estrictamente necesario para la prestación de nuestros servicios o exista una obligación legal.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">5. Tus derechos</h2>
+      <p class="privacy-section-text">
+        Tienes derecho a acceder, rectificar o eliminar tus datos personales en cualquier momento. Para ejercer estos derechos puedes escribirnos a <a href="mailto:iakairox1@gmail.com">iakairox1@gmail.com</a>
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">6. Cookies</h2>
+      <p class="privacy-section-text">
+        Nuestro sitio puede utilizar cookies para mejorar la experiencia de navegación. Puedes configurar tu navegador para rechazarlas, aunque esto podría afectar algunas funcionalidades del sitio.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">7. Cambios en esta política</h2>
+      <p class="privacy-section-text">
+        Nos reservamos el derecho de modificar esta política en cualquier momento. Los cambios se publicarán en esta misma página.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="privacy-section-title">8. Contacto</h2>
+      <p class="privacy-section-text">
+        Si tienes preguntas sobre esta política escríbenos a <a href="mailto:iakairox1@gmail.com">iakairox1@gmail.com</a>
+      </p>
+    </section>
+
+    <div class="privacy-back">
+      <a href="index.html" class="privacy-back-btn">Volver al inicio</a>
+    </div>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="footer-top-line"></div>
+
+    <div class="footer-content">
+
+      <!-- Marca -->
+      <div class="footer-brand">
+        <img src="imagenes/logo.png" alt="KAIROX IA" loading="lazy" />
+        <p class="footer-tagline">Agencia de desarrollo web con IA.</p>
+      </div>
+
+      <!-- Links rápidos -->
+      <div>
+        <h4 class="footer-col-title">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="index.html#proyectos">Proyectos</a></li>
+          <li><a href="index.html#equipo">Equipo</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div>
+        <h4 class="footer-col-title">Síguenos</h4>
+        <div class="footer-social">
+          <a
+            href="mailto:iakairox1@gmail.com?subject=Consulta%20KAIROX%20IA"
+            class="social-icon"
+            aria-label="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/kairox.ia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/kairox-ia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 KAIROX IA. Todos los derechos reservados.</p>
+      <a href="privacidad.html" class="footer-privacy">Política de Privacidad</a>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================= -->
+  <script>
+    // ---- Navbar scroll blur ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // ---- Hamburger menu ----
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMenu(force) {
+      const willOpen = (typeof force === 'boolean') ? force : !mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open', willOpen);
+      hamburger.classList.toggle('open', willOpen);
+      hamburger.setAttribute('aria-expanded', willOpen);
+      document.body.style.overflow = willOpen ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu());
+    mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,2774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KAIROX IA — Agencia de desarrollo web con IA. Creamos la web de tu negocio. Rápido, profesional y con inteligencia artificial." />
+  <title>KAIROX IA — Desarrollo Web con Inteligencia Artificial</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Imagenes/logo.png">
+  <link rel="apple-touch-icon" href="Imagenes/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    /* =============================================
+       VARIABLES Y RESET
+    ============================================= */
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-alt: #1a1a1a;
+      --bg-section-alt: #0d0d0d;
+      --accent: #00d9ff;
+      --accent-secondary: #87CEEB;
+      --accent-glow: rgba(0, 217, 255, 0.25);
+      --accent-border: rgba(0, 217, 255, 0.20);
+      --accent-border-hover: rgba(0, 217, 255, 0.55);
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --text-muted: #666666;
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =============================================
+       SCROLL REVEAL — estado inicial
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* =============================================
+       SEPARADORES
+    ============================================= */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto;
+      max-width: 600px;
+      opacity: 0.35;
+    }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--accent-border);
+      padding: 12px 5%;
+    }
+
+    .nav-logo img {
+      height: 45px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #0a0a0a !important;
+      font-weight: 700 !important;
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition) !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: #00f0ff !important;
+      box-shadow: 0 0 20px var(--accent-glow);
+      transform: scale(1.04);
+      color: #0a0a0a !important;
+    }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+      outline: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(5, 5, 5, 0.97);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .nav-mobile a {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: var(--transition);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-mobile a:hover {
+      color: var(--accent);
+    }
+
+    .nav-mobile .mobile-cta {
+      background: var(--accent);
+      color: #0a0a0a;
+      padding: 14px 36px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-hamburger {
+        display: none;
+      }
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #inicio {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 5% 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('imagenes/hero-oficina.png');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.70);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      text-align: left;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0, 217, 255, 0.08);
+      border: 1px solid var(--accent-border);
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease 0.1s forwards;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease 0.25s forwards;
+    }
+
+    .hero-subheadline {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease 0.4s forwards;
+    }
+
+    .hero-paragraph {
+      font-size: 1.1rem;
+      color: rgba(224, 224, 224, 0.85);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease 0.55s forwards;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease 0.7s forwards;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #00f0ff;
+      box-shadow: 0 0 28px var(--accent-glow), 0 6px 24px rgba(0, 217, 255, 0.3);
+      transform: scale(1.04);
+      color: #0a0a0a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 13px 32px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--accent);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: rgba(0, 217, 255, 0.10);
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.18);
+      transform: scale(1.04);
+      color: var(--accent);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease 0.85s forwards;
+    }
+
+    .badge {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: rgba(0, 217, 255, 0.08);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-pill);
+      padding: 7px 16px;
+    }
+
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =============================================
+       SECCIONES — layout base
+    ============================================= */
+    section {
+      padding: 100px 5%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       SERVICIOS
+    ============================================= */
+    #servicios {
+      background: var(--bg-section-alt);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-md);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.08), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      left: 150%;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent-border-hover);
+      box-shadow: 0 18px 42px rgba(0, 217, 255, 0.15);
+      transform: translateY(-6px);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .service-desc {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* =============================================
+       PROCESO
+    ============================================= */
+    #proceso {
+      background: var(--bg-base);
+    }
+
+    .process-timeline {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      position: relative;
+    }
+
+    .process-connector {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .process-timeline {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0;
+      }
+
+      .process-connector {
+        display: block;
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent) var(--fill, 0%), rgba(0, 217, 255, 0.12) var(--fill, 0%));
+        align-self: center;
+        margin-top: -48px;
+        transition: --fill 1.5s ease;
+      }
+
+      .process-connector.animated {
+        animation: fillLine 1.4s ease forwards;
+      }
+    }
+
+    @keyframes fillLine {
+      from { background: linear-gradient(90deg, rgba(0,217,255,0.12) 0%, rgba(0,217,255,0.12) 100%); }
+      to   { background: linear-gradient(90deg, var(--accent) 100%, var(--accent) 100%); }
+    }
+
+    .process-step {
+      flex: 1;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .process-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+
+    .process-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: 0.03em;
+    }
+
+    .process-desc {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       PROYECTOS
+    ============================================= */
+    /* =============================================
+       PROYECTOS
+    ============================================= */
+    #proyectos {
+      background: var(--bg-section-alt);
+    }
+
+    /* ── Showcase carousel ── */
+    .showcase-wrapper {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .showcase-viewport {
+      overflow: hidden;
+      padding: 30px 0;     /* espacio vertical para el scale */
+    }
+
+    .showcase-track {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .project-card {
+      background: #111111;
+      border: 1px solid rgba(0, 217, 255, 0.18);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      flex: 0 0 340px;
+      opacity: 0.5;
+      transform: scale(0.85);
+      transform-origin: center center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition:
+        opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.is-active {
+      opacity: 1;
+      transform: scale(1);
+      border-color: rgba(0, 217, 255, 0.55);
+      box-shadow: 0 22px 50px rgba(0, 217, 255, 0.22);
+      cursor: default;
+    }
+
+    /* Hover sutil en cards laterales */
+    .project-card:not(.is-active):hover {
+      opacity: 0.78;
+      border-color: rgba(0, 217, 255, 0.35);
+    }
+
+    @media (max-width: 900px) {
+      .project-card { flex-basis: 300px; }
+    }
+
+    @media (max-width: 600px) {
+      .project-card { flex-basis: 82%; }
+    }
+
+    /* Contenedor de la imagen — altura crece cuando la card está activa */
+    .project-image-wrap {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      background: #0a0a0a;
+      transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.is-active .project-image-wrap {
+      height: 260px;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card.is-active:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    /* Badge sobre la imagen */
+    .project-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-completed {
+      background: #00d9ff;
+      color: #0a0a0a;
+    }
+
+    .badge-progress {
+      background: transparent;
+      color: #00d9ff;
+      border: 1.5px solid #00d9ff;
+    }
+
+    .badge-functional {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    /* Contenido inferior — altura uniforme */
+    .project-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-info-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.3;
+      /* Altura fija de 2 líneas */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: calc(0.95rem * 1.3 * 2);
+    }
+
+    .project-info-desc {
+      font-size: 0.9rem;
+      color: #b0b0b0;
+      line-height: 1.5;
+      /* Altura fija de 4 líneas */
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: calc(0.9rem * 1.5 * 4);
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.is-active .project-info-desc {
+      max-height: calc(0.9rem * 1.5 * 4);
+      opacity: 1;
+    }
+
+    /* ── Controles del showcase ── */
+    .showcase-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .showcase-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid #00d9ff;
+      background: rgba(0, 217, 255, 0.08);
+      color: #ffffff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, border-color 0.25s, opacity 0.25s;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .showcase-btn:hover:not(:disabled) {
+      background: rgba(0, 217, 255, 0.22);
+      border-color: rgba(0, 217, 255, 0.9);
+    }
+
+    .showcase-btn:disabled {
+      opacity: 0.28;
+      cursor: default;
+      border-color: rgba(0, 217, 255, 0.3);
+    }
+
+    .showcase-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .showcase-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(176, 176, 176, 0.35);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .showcase-dot.active {
+      background: #00d9ff;
+      transform: scale(1.3);
+    }
+
+    /* Separador final con CTA */
+    .projects-cta {
+      max-width: 720px;
+      margin: 56px auto 0;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .projects-cta-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .projects-cta-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1.5px solid #00d9ff;
+      color: #00d9ff;
+      background: transparent;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .projects-cta-btn:hover {
+      background: #00d9ff;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 217, 255, 0.25);
+    }
+
+    /* =============================================
+       EQUIPO
+    ============================================= */
+    #equipo {
+      background: var(--bg-base);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-md);
+      padding: 40px 32px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .team-card:hover {
+      border-color: var(--accent-border-hover);
+      box-shadow: 0 18px 42px rgba(0, 217, 255, 0.12);
+      transform: translateY(-5px);
+    }
+
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #00d9ff 0%, #006080 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #0a0a0a;
+      border: 2.5px solid var(--accent);
+      box-shadow: 0 0 24px rgba(0, 217, 255, 0.35);
+    }
+
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .team-role {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .team-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .team-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .chip {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent-secondary);
+      background: rgba(135, 206, 235, 0.08);
+      border: 1px solid rgba(135, 206, 235, 0.20);
+      border-radius: var(--radius-pill);
+      padding: 5px 14px;
+    }
+
+    /* =============================================
+       TESTIMONIOS
+    ============================================= */
+    /* =============================================
+       TESTIMONIOS — CARRUSEL
+    ============================================= */
+    #testimonios {
+      background: var(--bg-section-alt);
+    }
+
+    .testimonials-note {
+      text-align: center;
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Contenedor externo del carrusel */
+    .carousel-wrapper {
+      position: relative;
+      max-width: 1160px;
+      margin: 0 auto 48px;
+      padding: 0 64px; /* espacio para las flechas */
+    }
+
+    @media (max-width: 600px) {
+      .carousel-wrapper {
+        padding: 0 48px;
+      }
+    }
+
+    /* Ventana visible (overflow oculto) */
+    .carousel-viewport {
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    /* Track que se desplaza */
+    .carousel-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+
+    /* Cada card ocupa 1/3 desktop, 100% mobile */
+    .testimonial-card {
+      background: #111111;
+      border: 1px solid rgba(0, 217, 255, 0.18);
+      border-radius: 16px;
+      padding: 28px;
+      flex: 0 0 calc((100% - 48px) / 3); /* 3 visibles, 2 gaps */
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-card {
+        flex: 0 0 calc((100% - 24px) / 2); /* 2 visibles en tablet */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .testimonial-card {
+        flex: 0 0 100%; /* 1 visible en mobile */
+      }
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(0, 217, 255, 0.55);
+      box-shadow: 0 12px 32px rgba(0, 217, 255, 0.12);
+      transform: translateY(-4px);
+    }
+
+    /* Comillas decorativas */
+    .testimonial-quote {
+      font-size: 3.2rem;
+      color: #00d9ff;
+      line-height: 1;
+      margin-bottom: 10px;
+      opacity: 0.7;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-stars {
+      color: #00d9ff;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid #00d9ff;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 0.93rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.82rem;
+      color: #b0b0b0;
+    }
+
+    /* Flechas de navegación */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid #00d9ff;
+      background: rgba(0, 217, 255, 0.08);
+      color: #ffffff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, border-color 0.25s, opacity 0.25s;
+      z-index: 10;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .carousel-btn:hover:not(:disabled) {
+      background: rgba(0, 217, 255, 0.22);
+      border-color: rgba(0, 217, 255, 0.9);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.28;
+      cursor: default;
+      border-color: rgba(0, 217, 255, 0.3);
+    }
+
+    .carousel-btn-prev { left: 0; }
+    .carousel-btn-next { right: 0; }
+
+    /* Dots indicadores */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0, 217, 255, 0.25);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .carousel-dot.active {
+      background: #00d9ff;
+      transform: scale(1.3);
+    }
+
+    /* =============================================
+       CONTACTO
+    ============================================= */
+    #contacto {
+      background: var(--bg-base);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 56px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 72px;
+      }
+    }
+
+    /* Formulario */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.03em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: #ffffff;
+      color: #000000;
+      border: 1.5px solid rgba(0, 217, 255, 0.25);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      transition: var(--transition);
+      outline: none;
+      width: 100%;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #666666;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.15);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checkbox-row a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .btn-submit {
+      background: var(--accent);
+      color: #0a0a0a;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 36px;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover {
+      background: #00f0ff;
+      box-shadow: 0 0 28px var(--accent-glow), 0 6px 24px rgba(0, 217, 255, 0.3);
+      transform: scale(1.04);
+    }
+
+    /* Info de contacto */
+    .contact-info-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 32px;
+      letter-spacing: 0.03em;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      transform: translateX(5px);
+      color: var(--accent);
+    }
+
+    .contact-item:hover .contact-item-text {
+      color: var(--accent);
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0, 217, 255, 0.08);
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover .contact-item-icon {
+      background: rgba(0, 217, 255, 0.15);
+      border-color: var(--accent);
+    }
+
+    .contact-item-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-item-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+    }
+
+    .contact-item-soon {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: #050505;
+      padding: 0;
+    }
+
+    .footer-top-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 64px 5% 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 48px;
+      }
+    }
+
+    .footer-brand img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .footer-tagline {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      padding-left: 4px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(0, 217, 255, 0.06);
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      background: rgba(0, 217, 255, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 24px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-privacy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+
+    .footer-privacy:hover {
+      color: var(--accent);
+    }
+
+    /* =============================================
+       RESPONSIVE — ajustes menores
+    ============================================= */
+    @media (max-width: 767px) {
+      section {
+        padding: 80px 5%;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-paragraph {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-badges {
+        justify-content: center;
+      }
+
+      .process-step {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 20px;
+        padding: 0;
+      }
+
+      .process-number {
+        font-size: 2.8rem;
+        min-width: 64px;
+        margin-bottom: 0;
+      }
+    }
+
+    /* =============================================
+       BANNER DE COOKIES
+    ============================================= */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(10, 10, 10, 0.97);
+      border-top: 1px solid rgba(0, 217, 255, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .cookie-banner.is-visible {
+      transform: translateY(0);
+    }
+
+    .cookie-banner.is-hidden {
+      transform: translateY(100%);
+    }
+
+    .cookie-text-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cookie-title {
+      display: block;
+      color: #00d9ff;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .cookie-text {
+      color: #b0b0b0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .cookie-text a {
+      color: #00d9ff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 217, 255, 0.35);
+      transition: border-color 0.25s;
+    }
+
+    .cookie-text a:hover {
+      border-color: #00d9ff;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .cookie-btn {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      padding: 10px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+      white-space: nowrap;
+    }
+
+    .cookie-btn-primary {
+      background: #00d9ff;
+      color: #0a0a0a;
+      border: 1px solid #00d9ff;
+      font-weight: 700;
+    }
+
+    .cookie-btn-primary:hover {
+      background: #6be6ff;
+      border-color: #6be6ff;
+      transform: translateY(-2px);
+    }
+
+    .cookie-btn-secondary {
+      background: transparent;
+      color: #e0e0e0;
+      border: 1px solid rgba(0, 217, 255, 0.35);
+    }
+
+    .cookie-btn-secondary:hover {
+      border-color: rgba(0, 217, 255, 0.75);
+      background: rgba(0, 217, 255, 0.06);
+    }
+
+    @media (max-width: 720px) {
+      .cookie-banner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 18px 20px;
+      }
+
+      .cookie-actions {
+        justify-content: center;
+      }
+
+      .cookie-btn {
+        flex: 1;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       BANNER DE COOKIES
+  ============================================= -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+    <div class="cookie-text-wrap">
+      <span class="cookie-title">🍪 Usamos cookies</span>
+      <p class="cookie-text">
+        Utilizamos cookies esenciales para mejorar tu experiencia en nuestro sitio. Al continuar navegando, aceptas el uso de cookies según nuestra <a href="privacidad.html">Política de Privacidad</a>.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn cookie-btn-secondary" id="cookieEssential">Solo esenciales</button>
+      <button type="button" class="cookie-btn cookie-btn-primary" id="cookieAcceptAll">Aceptar todas</button>
+    </div>
+  </div>
+
+  <!-- =============================================
+       NAVBAR
+  ============================================= -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="#inicio" class="nav-logo">
+      <img src="imagenes/logo.png" alt="KAIROX IA — Logo" loading="lazy" />
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <a href="#inicio" class="mobile-nav-link">Inicio</a>
+    <a href="#servicios" class="mobile-nav-link">Servicios</a>
+    <a href="#proceso" class="mobile-nav-link">Proceso</a>
+    <a href="#proyectos" class="mobile-nav-link">Proyectos</a>
+    <a href="#equipo" class="mobile-nav-link">Equipo</a>
+    <a href="#contacto" class="mobile-nav-link mobile-cta">Contáctanos</a>
+  </div>
+
+
+  <!-- =============================================
+       HERO
+  ============================================= -->
+  <section id="inicio" aria-label="Inicio">
+    <div class="hero-bg" role="img" aria-label="Equipo de KAIROX IA trabajando"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Agencia Digital con IA</span>
+
+      <h1 class="hero-headline">Creamos la web<br>de tu negocio.</h1>
+
+      <p class="hero-subheadline">Rápido. Profesional. Con IA.</p>
+
+      <p class="hero-paragraph">
+        En KAIROX diseñamos y desarrollamos sitios web a medida para comercios y negocios.
+        Tu presencia digital, lista para crecer.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#servicios" class="btn-primary">Ver nuestros servicios</a>
+        <a href="#contacto" class="btn-outline">Contáctanos</a>
+      </div>
+
+      <div class="hero-badges">
+        <span class="badge">⚡ Implementación rápida</span>
+        <span class="badge">🔗 Integraciones</span>
+        <span class="badge">📈 Resultados medibles</span>
+        <span class="badge">🧠 IA aplicada</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- =============================================
+       SERVICIOS
+  ============================================= -->
+  <section id="servicios" aria-labelledby="servicios-title">
+    <div class="section-header">
+      <span class="section-label reveal">Lo que hacemos</span>
+      <h2 class="section-title reveal reveal-delay-1" id="servicios-title">Nuestros servicios</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Soluciones web profesionales para comercios y negocios que quieren crecer.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Card 1 — Web Institucional -->
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="14" width="44" height="32" rx="4" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M6 22H50" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M18 14V10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M38 14V10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="14" y="28" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M32 30H42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M32 35H38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Web Institucional</h3>
+        <p class="service-desc">
+          Presenta tu empresa con una web profesional que transmita confianza y credibilidad desde el primer clic.
+        </p>
+      </article>
+
+      <!-- Card 2 — Landing Page -->
+      <article class="service-card reveal reveal-delay-2">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="20" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <circle cx="28" cy="28" r="10" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <circle cx="28" cy="28" r="3" fill="currentColor"/>
+            <path d="M28 8V14M28 42V48M8 28H14M42 28H48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Landing Page de Ventas</h3>
+        <p class="service-desc">
+          Páginas diseñadas para convertir visitas en clientes. Un objetivo, máximo impacto.
+        </p>
+      </article>
+
+      <!-- Card 3 — Comercios Locales -->
+      <article class="service-card reveal reveal-delay-3">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 24L10 14H46L48 24" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            <path d="M8 24C8 27.3137 10.6863 30 14 30C17.3137 30 20 27.3137 20 24" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M20 24C20 27.3137 22.6863 30 26 30C29.3137 30 32 27.3137 32 24" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M32 24C32 27.3137 34.6863 30 38 30C41.3137 30 44 27.3137 44 24" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M10 30V46H32V36H42V46H46V30" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            <rect x="18" y="36" width="10" height="10" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Web para Comercios Locales</h3>
+        <p class="service-desc">
+          Tu negocio en internet. Catálogo, contacto, horarios y todo lo que tu cliente necesita encontrar.
+        </p>
+      </article>
+
+      <!-- Card 4 — Mantenimiento -->
+      <article class="service-card reveal reveal-delay-4">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 8L34 14H46V26L52 28L46 30V42H34L28 48L22 42H10V30L4 28L10 26V14H22L28 8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            <path d="M22 28L26 32L34 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Mantenimiento Mensual</h3>
+        <p class="service-desc">
+          Tu web siempre activa y actualizada. Tú te enfocas en vender, nosotros en el resto.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- =============================================
+       PROCESO
+  ============================================= -->
+  <section id="proceso" aria-labelledby="proceso-title">
+    <div class="section-header">
+      <span class="section-label reveal">Cómo trabajamos</span>
+      <h2 class="section-title reveal reveal-delay-1" id="proceso-title">Nuestro proceso</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Simple, claro y con resultados desde el primer mes.
+      </p>
+    </div>
+
+    <div class="process-timeline" id="processTimeline">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-number">01</div>
+        <h3 class="process-title">Analizamos tu negocio</h3>
+        <p class="process-desc">Entendemos qué necesitas y qué quieres comunicar al mundo.</p>
+      </div>
+
+      <div class="process-connector" id="connector1"></div>
+
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-number">02</div>
+        <h3 class="process-title">Diseñamos tu web</h3>
+        <p class="process-desc">Creamos un diseño profesional alineado a tu marca e identidad.</p>
+      </div>
+
+      <div class="process-connector" id="connector2"></div>
+
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-number">03</div>
+        <h3 class="process-title">Construimos con IA</h3>
+        <p class="process-desc">Desarrollamos rápido y con tecnología de última generación.</p>
+      </div>
+
+      <div class="process-connector" id="connector3"></div>
+
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-number">04</div>
+        <h3 class="process-title">Entregamos y mantenemos</h3>
+        <p class="process-desc">La web queda en tus manos, con soporte continuo cada mes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- =============================================
+       PROYECTOS
+  ============================================= -->
+  <section id="proyectos" aria-labelledby="proyectos-title">
+    <div class="section-header">
+      <h2 class="section-title reveal reveal-delay-1" id="proyectos-title">Nuestros proyectos</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Una selección de nuestro trabajo. Más de 8 proyectos adicionales disponibles — consúltanos por tu industria.
+      </p>
+    </div>
+
+    <!-- Showcase carousel -->
+    <div class="showcase-wrapper reveal" id="showcase-wrapper">
+      <div class="showcase-viewport">
+        <div class="showcase-track" id="showcase-track">
+
+          <!-- Card 1 — KAIROX IA Web -->
+          <article class="project-card is-active" data-index="0">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-completed">Completado</span>
+              <img
+                src="Imagenes/Web Kairox.png"
+                alt="KAIROX IA — Web Institucional"
+                class="project-image"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">KAIROX IA — Web Institucional</h3>
+              <p class="project-info-desc">
+                Diseño y desarrollo completo de la web corporativa de KAIROX IA. Identidad visual, animaciones y arquitectura moderna.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 2 — KAIROX Gestión -->
+          <article class="project-card" data-index="1">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-progress">En proceso</span>
+              <img
+                src="Imagenes/Kairox-Gestion.png"
+                alt="KAIROX Gestión — Sistema de gestión de clientes"
+                class="project-image"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">KAIROX Gestión</h3>
+              <p class="project-info-desc">
+                Sistema de gestión de clientes para registro, seguimiento y organización de información comercial. Optimización de procesos de venta.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 3 — Reinicia tu Foco -->
+          <article class="project-card" data-index="2">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-functional">Funcional</span>
+              <img
+                src="Imagenes/Reinicia tu foco.png"
+                alt="Reinicia tu Foco — Landing"
+                class="project-image"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Reinicia tu Foco</h3>
+              <p class="project-info-desc">
+                Landing que muestra cómo recuperar el control de tu atención en 7 días. Las plataformas digitales están diseñadas para distraerte — esto te devuelve el foco.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 4 — Aurys -->
+          <article class="project-card" data-index="3">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-progress">En proceso</span>
+              <img
+                src="Imagenes/Aurys-App Bienestar.png"
+                alt="Aurys — App de bienestar con IA"
+                class="project-image"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Aurys — App de Bienestar con IA</h3>
+              <p class="project-info-desc">
+                App de bienestar personal con IA para registrar actividades diarias y recibir informes personalizados. Incluye mascota robot interactiva y perfil completamente personalizable.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 5 — Landing Servicios -->
+          <article class="project-card" data-index="4">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-completed">Completado</span>
+              <img
+                src="Imagenes/Landing Servicios y Perfil Profesional.png"
+                alt="Landing — Servicios y Perfil Profesional"
+                class="project-image"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Landing — Servicios y Perfil Profesional</h3>
+              <p class="project-info-desc">
+                Landing diseñada para ofrecer servicios y mostrar perfil profesional. Haz que la gente te conozca y confíe en tu trabajo.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 6 — Facturador ARCA -->
+          <article class="project-card" data-index="5">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-progress">En proceso</span>
+              <img
+                src="Imagenes/Facturador.png"
+                alt="Sistema de Facturación ARCA"
+                class="project-image"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Sistema de Facturación ARCA</h3>
+              <p class="project-info-desc">
+                Sistema integrado con ARCA para emisión y gestión de comprobantes. Generación de facturas, registro de clientes y automatización contable.
+              </p>
+            </div>
+          </article>
+
+        </div><!-- /showcase-track -->
+      </div><!-- /showcase-viewport -->
+    </div><!-- /showcase-wrapper -->
+
+    <!-- Controles -->
+    <div class="showcase-controls">
+      <button class="showcase-btn" id="showcase-prev" aria-label="Proyecto anterior" disabled>&#8249;</button>
+      <button class="showcase-btn" id="showcase-next" aria-label="Siguiente proyecto">&#8250;</button>
+    </div>
+
+    <!-- Dots -->
+    <div class="showcase-dots" id="showcase-dots" aria-label="Navegación de proyectos"></div>
+
+    <!-- CTA inferior -->
+    <div class="projects-cta reveal">
+      <p class="projects-cta-text">
+        ¿Tienes un proyecto en mente? Cada web que construimos es única.
+      </p>
+      <a href="#contacto" class="projects-cta-btn">Hablemos de tu proyecto</a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- =============================================
+       EQUIPO
+  ============================================= -->
+  <section id="equipo" aria-labelledby="equipo-title">
+    <div class="section-header">
+      <span class="section-label reveal">Las personas detrás</span>
+      <h2 class="section-title reveal reveal-delay-1" id="equipo-title">Quiénes somos</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Dos co-fundadores, un mismo objetivo: que tu negocio tenga la presencia digital que merece.
+      </p>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- Nadia -->
+      <article class="team-card reveal reveal-delay-1">
+        <div class="team-avatar" aria-hidden="true">N</div>
+        <h3 class="team-name">Nadia Tecera</h3>
+        <p class="team-role">Co-Fundadora &amp; CEO</p>
+        <p class="team-desc">
+          Especialista en IA aplicada, diseño web y soluciones digitales. Transforma ideas en proyectos funcionales
+          combinando creatividad y tecnología.
+        </p>
+        <div class="team-chips" aria-label="Habilidades de Nadia">
+          <span class="chip">IA Aplicada</span>
+          <span class="chip">Desarrollo Web</span>
+          <span class="chip">UX/UI</span>
+          <span class="chip">Automatización</span>
+        </div>
+      </article>
+
+      <!-- Luciano -->
+      <article class="team-card reveal reveal-delay-2">
+        <div class="team-avatar" aria-hidden="true">L</div>
+        <h3 class="team-name">Luciano Banegas</h3>
+        <p class="team-role">Co-Fundador &amp; CEO</p>
+        <p class="team-desc">
+          Desarrollador y consultor tecnológico con más de 4 años de experiencia en sistemas, automatización
+          y transformación digital.
+        </p>
+        <div class="team-chips" aria-label="Habilidades de Luciano">
+          <span class="chip">Desarrollo Web</span>
+          <span class="chip">Sistemas</span>
+          <span class="chip">Integraciones</span>
+          <span class="chip">IA Aplicada</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- =============================================
+       TESTIMONIOS
+  ============================================= -->
+  <section id="testimonios" aria-labelledby="testimonios-title">
+    <div class="section-header">
+      <span class="section-label reveal">Opiniones</span>
+      <h2 class="section-title reveal reveal-delay-1" id="testimonios-title">Reseñas destacadas</h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="color:#b0b0b0;font-size:0.92rem;">27 reseñas · Mostrando las más relevantes</p>
+    </div>
+
+    <!-- Carrusel de testimonios -->
+    <div class="carousel-wrapper reveal">
+
+      <!-- Flecha anterior -->
+      <button class="carousel-btn carousel-btn-prev" id="carousel-prev" aria-label="Reseña anterior" disabled>&#8249;</button>
+
+      <!-- Ventana visible -->
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carousel-track">
+
+          <!-- Card 1 -->
+          <article class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <span class="testimonial-stars" aria-label="5 estrellas">★★★★★</span>
+            <p class="testimonial-text">
+              "Tenía mi negocio solo en Instagram y perdía clientes todo el tiempo.
+              KAIROX me armó una web que quedó increíble y ahora me encuentran
+              en Google. Fue la mejor inversión que hice para mi negocio."
+            </p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <img src="Imagenes/Valentina.png" alt="Foto de Valentina M." class="testimonial-avatar" loading="lazy" />
+              <div>
+                <p class="testimonial-name">Valentina M.</p>
+                <p class="testimonial-role">Córdoba</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <span class="testimonial-stars" aria-label="5 estrellas">★★★★★</span>
+            <p class="testimonial-text">
+              "Antes me llegaban clientes solo por el boca a boca.
+              Ahora me encuentran en Google y me escriben por la web.
+              El cambio fue enorme y el precio fue más que justo."
+            </p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <img src="Imagenes/Martin.png" alt="Foto de Martín G." class="testimonial-avatar" loading="lazy" />
+              <div>
+                <p class="testimonial-name">Martín G.</p>
+                <p class="testimonial-role">Buenos Aires</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <span class="testimonial-stars" aria-label="4 estrellas">★★★★☆</span>
+            <p class="testimonial-text">
+              "Super rápidos y atentos. Me explicaron todo sin
+              tecnicismos y el resultado quedó hermoso.
+              Recomiendo 100% a cualquier emprendedor."
+            </p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <img src="Imagenes/Lucia.png" alt="Foto de Lucía F." class="testimonial-avatar" loading="lazy" />
+              <div>
+                <p class="testimonial-name">Lucía F.</p>
+                <p class="testimonial-role">Rosario</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <span class="testimonial-stars" aria-label="4 estrellas">★★★★☆</span>
+            <p class="testimonial-text">
+              "Lo que más me sorprendió fue la velocidad.
+              En menos de dos semanas tenía mi web funcionando.
+              Mis clientes ahora reservan turno desde ahí directamente."
+            </p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <img src="Imagenes/Diego.png" alt="Foto de Diego R." class="testimonial-avatar" loading="lazy" />
+              <div>
+                <p class="testimonial-name">Diego R.</p>
+                <p class="testimonial-role">Mendoza</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <span class="testimonial-stars" aria-label="4 estrellas">★★★★☆</span>
+            <p class="testimonial-text">
+              "Muy buena experiencia de principio a fin.
+              La web quedó clara, linda y fácil de usar.
+              Ya noté más consultas desde que la tenemos online."
+            </p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+              <img src="Imagenes/Carolina.png" alt="Foto de Carolina P." class="testimonial-avatar" loading="lazy" />
+              <div>
+                <p class="testimonial-name">Carolina P.</p>
+                <p class="testimonial-role">Tucumán</p>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /carousel-track -->
+      </div><!-- /carousel-viewport -->
+
+      <!-- Flecha siguiente -->
+      <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Siguiente reseña">&#8250;</button>
+
+    </div><!-- /carousel-wrapper -->
+
+    <!-- Dots indicadores -->
+    <div class="carousel-dots" id="carousel-dots" aria-label="Navegación del carrusel"></div>
+
+    <p class="testimonials-note reveal" style="margin-top:32px;">
+      ¿Ya trabajaste con nosotros? Escríbenos y comparte tu experiencia.
+    </p>
+  </section>
+
+  <div class="section-divider"></div>
+
+
+  <!-- =============================================
+       CONTACTO
+  ============================================= -->
+  <section id="contacto" aria-labelledby="contacto-title">
+    <div class="section-header">
+      <span class="section-label reveal">Escríbenos</span>
+      <h2 class="section-title reveal reveal-delay-1" id="contacto-title">Hablemos</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Cuéntanos qué necesita tu negocio. Respondemos en menos de 24 horas.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Formulario -->
+      <div class="reveal reveal-delay-1">
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/myzpzzkl"
+          method="POST"
+          aria-label="Formulario de contacto"
+        >
+          <div class="form-group">
+            <label for="nombre">Tu nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Tu correo</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Tu correo"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="negocio">Nombre de tu negocio</label>
+            <input
+              type="text"
+              id="negocio"
+              name="negocio"
+              placeholder="Nombre de tu negocio"
+              autocomplete="organization"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Tu mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              placeholder="Cuéntanos qué necesitas"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="privacidad" required aria-required="true" />
+            <label for="privacidad">
+              Acepto la <a href="#" target="_blank" rel="noopener">política de privacidad</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar mensaje</button>
+        </form>
+      </div>
+
+      <!-- Info de contacto -->
+      <div class="reveal reveal-delay-2">
+        <h3 class="contact-info-title">También puedes escribirnos por:</h3>
+        <div class="contact-items">
+
+          <a
+            href="mailto:iakairox1@gmail.com?subject=Consulta%20KAIROX%20IA"
+            class="contact-item"
+            aria-label="Enviar email a KAIROX IA"
+          >
+            <div class="contact-item-icon" aria-hidden="true">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <p class="contact-item-label">Email</p>
+              <p class="contact-item-text">iakairox1@gmail.com</p>
+            </div>
+          </a>
+
+          <a
+            href="https://www.instagram.com/kairox.ia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-item"
+            aria-label="KAIROX IA en Instagram"
+          >
+            <div class="contact-item-icon" aria-hidden="true">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div>
+              <p class="contact-item-label">Instagram</p>
+              <p class="contact-item-text">@kairox.ia</p>
+            </div>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/kairox-ia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-item"
+            aria-label="KAIROX IA en LinkedIn"
+          >
+            <div class="contact-item-icon" aria-hidden="true">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div>
+              <p class="contact-item-label">LinkedIn</p>
+              <p class="contact-item-text">KAIROX IA</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer>
+    <div class="footer-top-line"></div>
+
+    <div class="footer-content">
+
+      <!-- Marca -->
+      <div class="footer-brand">
+        <img src="imagenes/logo.png" alt="KAIROX IA" loading="lazy" />
+        <p class="footer-tagline">Agencia de desarrollo web con IA.</p>
+      </div>
+
+      <!-- Links rápidos -->
+      <div>
+        <h4 class="footer-col-title">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div>
+        <h4 class="footer-col-title">Síguenos</h4>
+        <div class="footer-social">
+          <a
+            href="mailto:iakairox1@gmail.com?subject=Consulta%20KAIROX%20IA"
+            class="social-icon"
+            aria-label="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/kairox.ia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/kairox-ia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 KAIROX IA. Todos los derechos reservados.</p>
+      <a href="privacidad.html" class="footer-privacy">Política de Privacidad</a>
+    </div>
+  </footer>
+
+
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================= -->
+  <script>
+    // ---- Navbar scroll blur ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+
+    // ---- Hamburger menu ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close mobile menu on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+
+
+    // ---- Smooth scroll for all anchor links ----
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = navbar.offsetHeight + 12;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+
+    // ---- IntersectionObserver — scroll reveal ----
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+    // ---- Process timeline — connector animation ----
+    const processSection = document.getElementById('proceso');
+    const connectors = document.querySelectorAll('.process-connector');
+
+    const processObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          connectors.forEach((c, i) => {
+            setTimeout(() => c.classList.add('animated'), i * 200);
+          });
+          processObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (processSection) processObserver.observe(processSection);
+
+    // ---- Showcase carousel — Proyectos ----
+    (function () {
+      const wrapper  = document.getElementById('showcase-wrapper');
+      const track    = document.getElementById('showcase-track');
+      const btnPrev  = document.getElementById('showcase-prev');
+      const btnNext  = document.getElementById('showcase-next');
+      const dotsWrap = document.getElementById('showcase-dots');
+
+      if (!wrapper || !track || !btnPrev || !btnNext || !dotsWrap) return;
+
+      const cards   = Array.from(track.querySelectorAll('.project-card'));
+      const total   = cards.length;
+      let   current = 0;
+
+      /* ── Centrar la card activa en la viewport ── */
+      function update() {
+        const viewport = wrapper.querySelector('.showcase-viewport');
+        const vpWidth  = viewport.offsetWidth;
+        const card     = cards[current];
+        if (!card) return;
+
+        const cardLeft  = card.offsetLeft;
+        const cardWidth = card.offsetWidth;
+        const offset    = (vpWidth / 2) - (cardLeft + cardWidth / 2);
+
+        track.style.transform = `translateX(${offset}px)`;
+
+        // Estado activo + accesibilidad
+        cards.forEach((c, i) => {
+          c.classList.toggle('is-active', i === current);
+          c.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+        });
+
+        // Botones
+        btnPrev.disabled = (current === 0);
+        btnNext.disabled = (current === total - 1);
+
+        // Dots
+        Array.from(dotsWrap.children).forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function goTo(i) {
+        current = Math.max(0, Math.min(i, total - 1));
+        update();
+      }
+
+      /* ── Click en cards laterales → centrarlas ── */
+      cards.forEach((c, i) => {
+        c.addEventListener('click', () => {
+          if (i !== current) goTo(i);
+        });
+      });
+
+      /* ── Construir dots ── */
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'showcase-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Ir al proyecto ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      }
+
+      /* ── Flechas ── */
+      btnPrev.addEventListener('click', () => goTo(current - 1));
+      btnNext.addEventListener('click', () => goTo(current + 1));
+
+      /* ── Swipe táctil ── */
+      let touchStartX = 0;
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 40) {
+          goTo(current + (diff > 0 ? 1 : -1));
+        }
+      }, { passive: true });
+
+      /* ── Resize ── */
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(update, 120);
+      });
+
+      /* ── Init: esperar layout para medir bien ── */
+      requestAnimationFrame(() => {
+        update();
+        // Re-medir tras carga de imágenes
+        window.addEventListener('load', update, { once: true });
+      });
+    })();
+
+    // ---- Carrusel de Testimonios ----
+    (function () {
+      const track      = document.getElementById('carousel-track');
+      const btnPrev    = document.getElementById('carousel-prev');
+      const btnNext    = document.getElementById('carousel-next');
+      const dotsWrap   = document.getElementById('carousel-dots');
+
+      if (!track || !btnPrev || !btnNext) return;
+
+      const cards      = Array.from(track.children);
+      const total      = cards.length;
+      let   current    = 0;   // índice de la card más a la izquierda visible
+      let   visibleCount = 3; // cuántas cards se ven a la vez
+
+      /* ── Determinar cuántas cards son visibles según ancho ── */
+      function getVisible() {
+        if (window.innerWidth <= 600)  return 1;
+        if (window.innerWidth <= 900)  return 2;
+        return 3;
+      }
+
+      /* ── Calcular el máximo índice de inicio válido ── */
+      function maxIndex() {
+        return Math.max(0, total - visibleCount);
+      }
+
+      /* ── Calcular offset de desplazamiento en px ── */
+      function calcOffset() {
+        if (cards.length === 0) return 0;
+        const cardEl   = cards[0];
+        const gap      = parseInt(getComputedStyle(track).gap) || 24;
+        return current * (cardEl.offsetWidth + gap);
+      }
+
+      /* ── Mover el track ── */
+      function moveTo(index) {
+        visibleCount = getVisible();
+        current = Math.max(0, Math.min(index, maxIndex()));
+        track.style.transform = `translateX(-${calcOffset()}px)`;
+        updateButtons();
+        updateDots();
+      }
+
+      /* ── Estado de los botones ── */
+      function updateButtons() {
+        btnPrev.disabled = (current === 0);
+        btnNext.disabled = (current >= maxIndex());
+      }
+
+      /* ── Generar / actualizar dots ── */
+      function buildDots() {
+        visibleCount = getVisible();
+        dotsWrap.innerHTML = '';
+        const steps = maxIndex() + 1; // posibles posiciones
+        for (let i = 0; i < steps; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+          dot.setAttribute('aria-label', `Ir a reseña ${i + 1}`);
+          dot.addEventListener('click', () => moveTo(i));
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        const dots = dotsWrap.querySelectorAll('.carousel-dot');
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      /* ── Navegación con botones ── */
+      btnPrev.addEventListener('click', () => moveTo(current - 1));
+      btnNext.addEventListener('click', () => moveTo(current + 1));
+
+      /* ── Swipe táctil para mobile ── */
+      let touchStartX = 0;
+      let touchEndX   = 0;
+
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {           // umbral mínimo de swipe
+          moveTo(diff > 0 ? current + 1 : current - 1);
+        }
+      }, { passive: true });
+
+      /* ── Recalcular al cambiar tamaño de ventana ── */
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          buildDots();
+          moveTo(current); // re-centrar con nuevas medidas
+        }, 120);
+      });
+
+      /* ── Inicializar ── */
+      buildDots();
+      updateButtons();
+    })();
+
+    // ---- Banner de Cookies ----
+    (function () {
+      const STORAGE_KEY = 'cookies_accepted';
+      const banner      = document.getElementById('cookieBanner');
+      const btnAccept   = document.getElementById('cookieAcceptAll');
+      const btnEssential= document.getElementById('cookieEssential');
+
+      if (!banner || !btnAccept || !btnEssential) return;
+
+      /* ── Si ya aceptó, no mostrar ── */
+      let alreadyAccepted = false;
+      try {
+        alreadyAccepted = localStorage.getItem(STORAGE_KEY) === 'true';
+      } catch (e) {
+        // localStorage puede estar bloqueado (modo privado / cookies deshabilitadas)
+        alreadyAccepted = false;
+      }
+
+      if (alreadyAccepted) return;
+
+      /* ── Mostrar banner tras 1.5s ── */
+      setTimeout(() => {
+        banner.hidden = false;
+        // Forzar reflow para que la transición se aplique desde translateY(100%)
+        void banner.offsetWidth;
+        banner.classList.add('is-visible');
+      }, 1500);
+
+      /* ── Cerrar y guardar ── */
+      function acceptAndClose() {
+        try {
+          localStorage.setItem(STORAGE_KEY, 'true');
+        } catch (e) { /* silently ignore */ }
+
+        banner.classList.remove('is-visible');
+        banner.classList.add('is-hidden');
+
+        // Ocultar totalmente al terminar la transición
+        banner.addEventListener('transitionend', () => {
+          banner.hidden = true;
+        }, { once: true });
+      }
+
+      btnAccept.addEventListener('click', acceptAndClose);
+      btnEssential.addEventListener('click', acceptAndClose);
+    })();
+  </script>
+
+</body>
+</html>
