@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Bloquear archivos de configuración interna
+Disallow: /.claude/
+Disallow: /.git/
+Disallow: /vercel.json
+Disallow: /README.md
+
+Sitemap: https://kairox-ia.vercel.app/sitemap.xml

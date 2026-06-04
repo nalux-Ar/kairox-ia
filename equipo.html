@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO básico ===== -->
+  <title>Equipo y Fundadores — KAIROX IA · Agencia de Automatización + Desarrollo Web con IA</title>
+  <meta name="description" content="Conocé a Nadia Tecera y Luciano Banegas, fundadores de KAIROX IA. Analistas de Sistemas especializados en automatización de procesos, integraciones SAP/ERP y desarrollo de apps web a medida con inteligencia artificial aplicada." />
+  <meta name="keywords" content="KAIROX IA, equipo KAIROX, Nadia Tecera, Luciano Banegas, agencia desarrollo web Argentina, automatización procesos, integraciones SAP, IA aplicada negocios, analistas de sistemas, apps web a medida" />
+  <meta name="author" content="KAIROX IA" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://kairox-ia.vercel.app/equipo.html" />
+
+  <!-- ===== Open Graph (Facebook, LinkedIn, WhatsApp) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Equipo y Fundadores — KAIROX IA" />
+  <meta property="og:description" content="Las personas detrás de KAIROX IA: dos Analistas de Sistemas que diseñan automatización real, integraciones y apps web a medida con IA aplicada." />
+  <meta property="og:url" content="https://kairox-ia.vercel.app/equipo.html" />
+  <meta property="og:site_name" content="KAIROX IA" />
+  <meta property="og:image" content="https://kairox-ia.vercel.app/Imagenes/logo.png" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- ===== Twitter Cards ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Equipo y Fundadores — KAIROX IA" />
+  <meta name="twitter:description" content="Las personas detrás de KAIROX IA: Analistas de Sistemas especializados en automatización + apps web + IA aplicada." />
+  <meta name="twitter:image" content="https://kairox-ia.vercel.app/Imagenes/logo.png" />
+
+  <!-- ===== JSON-LD: Organization + Person ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KAIROX IA",
+    "url": "https://kairox-ia.vercel.app",
+    "logo": "https://kairox-ia.vercel.app/Imagenes/logo.png",
+    "description": "Agencia de automatización, integración de sistemas y desarrollo de apps web a medida con inteligencia artificial aplicada.",
+    "email": "iakairox1@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/kairox.ia/",
+      "https://www.linkedin.com/company/kairox-ia/"
+    ],
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Nadia Tecera",
+        "jobTitle": "Co-Fundadora — Desarrollo Web + Automatización",
+        "image": "https://kairox-ia.vercel.app/Imagenes/Nadia.png"
+      },
+      {
+        "@type": "Person",
+        "name": "Luciano Banegas",
+        "jobTitle": "Co-Fundador — Automatización + Integraciones",
+        "image": "https://kairox-ia.vercel.app/Imagenes/Luciano.png"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Imagenes/logo.png">
+  <link rel="apple-touch-icon" href="Imagenes/logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-card: #111111;
+      --bg-section-alt: #0d0d0d;
+      --accent: #00d9ff;
+      --accent-2: #87CEEB;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --text-muted: #888888;
+      --accent-border: rgba(0, 217, 255, 0.18);
+      --accent-border-hover: rgba(0, 217, 255, 0.55);
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    [hidden] { display: none !important; }
+
+    /* ============== NAVBAR ============== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 5%;
+      background: rgba(10, 10, 10, 0.65);
+      transition: background 0.3s, backdrop-filter 0.3s, border-bottom 0.3s, padding 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+      padding: 12px 5%;
+    }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links {
+      list-style: none;
+      display: none;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.25s;
+    }
+    .nav-links a.is-current { color: var(--accent); }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      padding: 9px 22px;
+      border: 1.5px solid var(--accent);
+      border-radius: var(--radius-pill);
+      color: var(--accent) !important;
+      transition: background 0.25s, color 0.25s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #0a0a0a !important; }
+    .nav-hamburger {
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
+    }
+    .nav-hamburger span {
+      display: block; width: 26px; height: 2px;
+      background: var(--text-primary); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+      .nav-hamburger { display: none; }
+    }
+
+    .nav-mobile {
+      display: none;
+      position: fixed; inset: 0;
+      width: 100%; height: 100vh;
+      background: rgba(5, 5, 5, 0.97);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .nav-mobile.open { display: flex; }
+    .mobile-nav-link {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+      transition: color 0.25s;
+    }
+    .mobile-nav-link:hover { color: var(--accent); }
+    .mobile-nav-link.is-current { color: var(--accent); }
+    .mobile-cta {
+      padding: 12px 32px;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      border-radius: var(--radius-pill);
+    }
+
+    /* ============== BACKGROUND ORBS (animados) ============== */
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+    .bg-orb-1 {
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(0, 217, 255, 0.45), transparent 70%);
+      top: 10%; left: -10%;
+      animation-delay: 0s;
+    }
+    .bg-orb-2 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(135, 206, 235, 0.35), transparent 70%);
+      top: 40%; right: -8%;
+      animation-delay: -7s;
+    }
+    .bg-orb-3 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(0, 217, 255, 0.30), transparent 70%);
+      bottom: 5%; left: 30%;
+      animation-delay: -14s;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%      { transform: translate(60px, -40px) scale(1.1); }
+      66%      { transform: translate(-40px, 50px) scale(0.95); }
+    }
+
+    /* ============== HERO / PAGE HEADER ============== */
+    .hero-equipo {
+      position: relative;
+      padding: 160px 5% 60px;
+      text-align: center;
+      z-index: 1;
+      overflow: hidden;
+    }
+    /* spotlight que sigue al mouse */
+    .hero-equipo::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0, 217, 255, 0.10), transparent 60%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.4s;
+      opacity: 0;
+      left: var(--mx, 50%);
+      top: var(--my, 50%);
+    }
+    .hero-equipo.spotlight-on::before { opacity: 1; }
+
+    .hero-equipo-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .page-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      padding: 6px 18px;
+      background: rgba(0, 217, 255, 0.06);
+      border: 1px solid rgba(0, 217, 255, 0.18);
+      border-radius: 999px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 22px;
+      letter-spacing: 0.01em;
+      background: linear-gradient(135deg, #ffffff 0%, #87CEEB 50%, #00d9ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-lead {
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      line-height: 1.75;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    .page-lead strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .hero-pill {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      background: rgba(0, 217, 255, 0.05);
+      border: 1px solid rgba(0, 217, 255, 0.15);
+      border-radius: 999px;
+      padding: 7px 16px;
+    }
+    .hero-pill i {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    /* ============== ORIGEN — Cómo nació ============== */
+    .origin-section {
+      position: relative;
+      padding: 80px 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .origin-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .origin-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 32px;
+      max-width: 720px;
+    }
+    .origin-title span {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+    .origin-title span::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 100%; height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: lineDraw 1.2s ease 0.4s forwards;
+    }
+    @keyframes lineDraw {
+      to { transform: scaleX(1); }
+    }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (min-width: 800px) {
+      .origin-grid { grid-template-columns: 1.15fr 1fr; gap: 56px; }
+    }
+
+    .origin-text p {
+      font-size: 1.04rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+    .origin-text p:last-child { margin-bottom: 0; }
+    .origin-text strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .origin-text em {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* Quote / Manifesto box (sin recuadro fuerte, solo bordes laterales) */
+    .origin-manifesto {
+      padding: 24px 0 24px 28px;
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, rgba(0, 217, 255, 0.05), transparent 70%);
+      border-radius: 0 16px 16px 0;
+    }
+    .origin-manifesto-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .origin-manifesto p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+
+    /* ============== FUNDADORES — Layout editorial ============== */
+    .founders-section {
+      padding: 60px 5% 80px;
+      max-width: 1180px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .founders-intro {
+      text-align: center;
+      margin-bottom: 72px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .founders-intro-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .founders-intro-text {
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+
+    /* ============== BLOQUE DEL FUNDADOR (foto globito arriba) ============== */
+    .founder-block {
+      max-width: 760px;
+      margin: 0 auto 80px;
+      padding: 0 8px;
+    }
+    .founder-block:last-of-type { margin-bottom: 0; }
+
+    /* Header: foto circular chica + nombre y role al lado */
+    .founder-header {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOTO (globito circular pequeño) ── */
+    .founder-photo-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      flex-shrink: 0;
+      perspective: 600px;
+    }
+
+    .founder-photo-inner {
+      position: relative;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background:
+        linear-gradient(135deg, rgba(0, 217, 255, 0.30), rgba(135, 206, 235, 0.15)),
+        #0d0d0d;
+      box-shadow:
+        0 0 0 2px rgba(0, 217, 255, 0.55),
+        0 0 22px rgba(0, 217, 255, 0.35),
+        0 10px 24px -8px rgba(0, 0, 0, 0.6);
+    }
+
+    .founder-photo-wrap:hover .founder-photo-inner {
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    .founder-photo-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+    .founder-photo-wrap:hover .founder-photo-img {
+      transform: scale(1.08);
+      filter: brightness(1.05) saturate(1.1);
+    }
+
+    /* Placeholder cuando la foto no existe — letra con gradiente */
+    .founder-photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: rgba(0, 217, 255, 0.6);
+      text-shadow: 0 0 18px rgba(0, 217, 255, 0.45);
+      letter-spacing: -0.04em;
+      pointer-events: none;
+    }
+
+    /* Glow ring rotativo alrededor del globito */
+    .founder-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(0, 217, 255, 0.45) 90deg,
+        transparent 180deg,
+        rgba(135, 206, 235, 0.45) 270deg,
+        transparent 360deg
+      );
+      filter: blur(8px);
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: -1;
+      animation: ringSpin 6s linear infinite;
+    }
+    .founder-photo-wrap:hover::before { opacity: 0.8; }
+    @keyframes ringSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ── Nombre + role al lado de la foto ── */
+    .founder-heading {
+      flex: 1;
+      min-width: 0;
+    }
+    .founder-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+    .founder-name-accent {
+      color: var(--accent);
+    }
+    .founder-role {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      padding: 5px 14px;
+      background: rgba(0, 217, 255, 0.08);
+      border: 1px solid rgba(0, 217, 255, 0.22);
+      border-radius: 999px;
+    }
+
+    /* ── INFO (full width, debajo del header) ── */
+    .founder-info {
+      width: 100%;
+    }
+    .founder-bio {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+    .founder-bio strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .founder-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+    .founder-bullets li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .founder-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .founder-bullets li strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .founder-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .founder-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent-2);
+      background: rgba(135, 206, 235, 0.07);
+      border: 1px solid rgba(135, 206, 235, 0.2);
+      border-radius: 999px;
+      padding: 5px 14px;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .founder-tag:hover {
+      background: rgba(0, 217, 255, 0.10);
+      border-color: rgba(0, 217, 255, 0.4);
+      color: var(--accent);
+    }
+
+    /* ============== METODOLOGÍA — 3 pasos ============== */
+    .method-section {
+      padding: 80px 5% 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .method-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .method-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .method-subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .method-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 800px) {
+      .method-steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    }
+
+    .method-step {
+      position: relative;
+      padding: 32px 28px;
+      background: linear-gradient(135deg, rgba(17, 17, 17, 0.8), rgba(13, 13, 13, 0.4));
+      border: 1px solid rgba(0, 217, 255, 0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+    }
+    .method-step::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.07), transparent);
+      transition: left 0.8s ease;
+    }
+    .method-step:hover::before { left: 100%; }
+    .method-step:hover {
+      border-color: rgba(0, 217, 255, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px -10px rgba(0, 217, 255, 0.18);
+    }
+
+    .method-step-number {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(180deg, var(--accent), rgba(0, 217, 255, 0.2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+    .method-step-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .method-step-desc {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============== CTA Final ============== */
+    .final-cta {
+      max-width: 900px;
+      margin: 0 auto 80px;
+      padding: 60px 32px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(135, 206, 235, 0.04));
+      border: 1px solid rgba(0, 217, 255, 0.22);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 217, 255, 0.15), transparent 60%);
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%      { opacity: 1;   transform: scale(1.05); }
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 1;
+    }
+    .final-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .final-cta-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 28px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .final-cta-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--accent);
+      color: #0a0a0a;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    .final-cta-btn:hover {
+      background: #00f0ff;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px -8px rgba(0, 217, 255, 0.5);
+    }
+
+    /* ============== SCROLL REVEAL ============== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+      .bg-orb { animation: none; }
+      .origin-title span::after { transform: scaleX(1); animation: none; }
+    }
+
+    /* ============== FOOTER ============== */
+    footer {
+      background: #050505;
+      margin-top: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .footer-top-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+      opacity: 0.5;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 5% 32px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 768px) {
+      .footer-content { grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+    }
+    .footer-brand img { height: 40px; width: auto; margin-bottom: 14px; }
+    .footer-tagline { color: var(--text-muted); font-size: 0.93rem; line-height: 1.6; }
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex; flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      transition: color 0.3s, padding-left 0.3s;
+    }
+    .footer-links a:hover { color: var(--accent); padding-left: 4px; }
+    .footer-social { display: flex; gap: 14px; flex-wrap: wrap; }
+    .social-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(0, 217, 255, 0.06);
+      border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.25s;
+    }
+    .social-icon:hover {
+      background: rgba(0, 217, 255, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 22px 5%;
+      display: flex; flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy, .footer-privacy {
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .footer-privacy:hover { color: var(--accent); }
+
+    /* ============== RESPONSIVE ============== */
+    @media (max-width: 767px) {
+      .hero-equipo { padding: 130px 5% 40px; }
+      .origin-section, .founders-section, .method-section { padding-left: 6%; padding-right: 6%; }
+      .founder-bullets li { font-size: 0.92rem; }
+      .founder-block { margin-bottom: 70px; }
+      .founder-header { gap: 18px; }
+      .founder-photo-wrap { width: 84px; height: 84px; }
+      .founder-photo-fallback { font-size: 2.1rem; }
+      .final-cta { padding: 44px 22px; margin-bottom: 60px; }
+    }
+    @media (max-width: 480px) {
+      .hero-equipo { padding: 120px 5% 30px; }
+      .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.18em; }
+      .hero-pills { gap: 8px; }
+      .hero-pill { font-size: 0.75rem; padding: 6px 12px; }
+      .founder-block { margin-bottom: 60px; }
+      .founder-header { gap: 16px; }
+      .founder-photo-wrap { width: 72px; height: 72px; }
+      .founder-photo-fallback { font-size: 1.8rem; }
+      .founder-name { font-size: 1.35rem; }
+      .footer-bottom { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Background orbs (animados) ===== -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="nav-logo">
+      <img src="imagenes/logo.png" alt="KAIROX IA — Logo" loading="lazy" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="equipo.html" class="is-current" aria-current="page">Equipo</a></li>
+      <li><a href="index.html#contacto" class="nav-cta">Contáctanos</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <a href="index.html#inicio" class="mobile-nav-link">Inicio</a>
+    <a href="index.html#servicios" class="mobile-nav-link">Servicios</a>
+    <a href="index.html#proceso" class="mobile-nav-link">Proceso</a>
+    <a href="proyectos.html" class="mobile-nav-link">Proyectos</a>
+    <a href="equipo.html" class="mobile-nav-link is-current">Equipo</a>
+    <a href="index.html#contacto" class="mobile-nav-link mobile-cta">Contáctanos</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero-equipo" id="hero">
+    <div class="hero-equipo-inner">
+      <span class="page-eyebrow">Las personas detrás</span>
+      <h1 class="page-title">Analistas de Sistemas que automatizan&nbsp;de verdad</h1>
+      <p class="page-lead">
+        Somos <strong>Co-Fundadores y Analistas de Sistemas</strong>. Diseñamos e implementamos
+        automatización real, integraciones entre sistemas y apps web listas para producción.
+        Compartimos la arquitectura de cada solución y nos seguimos formando para adaptarnos
+        a cada cambio de la IA.
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill"><i class="fas fa-cogs"></i>Automatización</span>
+        <span class="hero-pill"><i class="fas fa-network-wired"></i>Integración de sistemas</span>
+        <span class="hero-pill"><i class="fas fa-brain"></i>IA aplicada (sin humo)</span>
+        <span class="hero-pill"><i class="fas fa-layer-group"></i>Arquitectura compartida</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORIGEN — Cómo nació KAIROX IA ===== -->
+  <section class="origin-section">
+    <span class="origin-label reveal">Nuestra historia</span>
+    <h2 class="origin-title reveal">Cómo nació <span>KAIROX&nbsp;IA</span></h2>
+
+    <div class="origin-grid">
+      <div class="origin-text reveal">
+        <p>
+          KAIROX IA nace de algo simple: vimos demasiadas empresas con
+          <strong>sistemas aislados</strong>, tareas manuales eternas y reportes que llegan tarde.
+          Procesos enteros sostenidos a fuerza de planillas, copy/paste y avisos por WhatsApp.
+        </p>
+        <p>
+          Decidimos crear una agencia donde la IA se use <em>con propósito</em>:
+          automatizar procesos reales, integrar datos entre sistemas y construir
+          <strong>apps web que ordenen la operación</strong>. Nada de demos lindas que no resuelven nada.
+        </p>
+        <p>
+          Somos <strong>Analistas de Sistemas</strong>, compartimos la arquitectura de cada
+          solución y estamos en actualización constante: si la tecnología cambia, nos adaptamos
+          y evolucionamos el stack para que tu negocio no quede atrás.
+        </p>
+      </div>
+
+      <aside class="origin-manifesto reveal">
+        <p class="origin-manifesto-title">Nuestro enfoque</p>
+        <p>
+          "Automatización + apps web + integración. Lo suficiente para que
+          tu negocio escale sin sumar caos."
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== FUNDADORES ===== -->
+  <section class="founders-section">
+
+    <div class="founders-intro reveal">
+      <h2 class="founders-intro-title">Quiénes somos</h2>
+      <p class="founders-intro-text">
+        Dos perfiles complementarios, un mismo objetivo: que tu operación deje de
+        depender de tareas manuales y empiece a escalar con automatización e integración.
+      </p>
+    </div>
+
+    <!-- ── Luciano ── -->
+    <article class="founder-block reveal">
+      <header class="founder-header">
+        <div class="founder-photo-wrap">
+          <div class="founder-photo-inner">
+<img
+              src="Imagenes/Luciano.png"
+              alt="Luciano Banegas — Co-Fundador de KAIROX IA"
+              class="founder-photo-img"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+        </div>
+        <div class="founder-heading">
+          <h3 class="founder-name">Luciano <span class="founder-name-accent">Banegas</span></h3>
+          <span class="founder-role">Co-Fundador · Automatización + Integraciones</span>
+        </div>
+      </header>
+      <div class="founder-info">
+        <p class="founder-bio">
+          Analista de Sistemas con más de <strong>4 años de experiencia</strong> en automatización
+          de procesos, integraciones entre sistemas y soluciones orientadas al negocio.
+          Especialista en SAP y trazabilidad de datos.
+        </p>
+        <ul class="founder-bullets">
+          <li>Especialización en <strong>SAP</strong>: consultas avanzadas, integraciones, reporting y mejora operativa.</li>
+          <li>Experiencia en <strong>ERPs</strong>, datos, trazabilidad e interfaces entre sistemas.</li>
+          <li>Foco fuerte en <strong>ROI</strong>: menos tiempo operativo, menos errores, mayor control y escalabilidad.</li>
+          <li>Formación continua en <strong>IA aplicada</strong>, automatización y nuevas tecnologías.</li>
+        </ul>
+        <div class="founder-tags">
+          <span class="founder-tag">Integraciones SAP</span>
+          <span class="founder-tag">Automatización</span>
+          <span class="founder-tag">Datos &amp; ERPs</span>
+          <span class="founder-tag">IA aplicada</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── Nadia ── -->
+    <article class="founder-block reveal">
+      <header class="founder-header">
+        <div class="founder-photo-wrap">
+          <div class="founder-photo-inner">
+<img
+              src="Imagenes/Nadia.png"
+              alt="Nadia Tecera — Co-Fundadora de KAIROX IA"
+              class="founder-photo-img"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+        </div>
+        <div class="founder-heading">
+          <h3 class="founder-name">Nadia <span class="founder-name-accent">Tecera</span></h3>
+          <span class="founder-role">Co-Fundadora · Desarrollo Web + Automatización</span>
+        </div>
+      </header>
+      <div class="founder-info">
+        <p class="founder-bio">
+          Analista de Sistemas con foco en construir <strong>apps web que de verdad funcionen
+          en producción</strong>. Diseña interfaces, portales, dashboards y herramientas internas
+          que reemplazan planillas y ordenan procesos.
+        </p>
+        <ul class="founder-bullets">
+          <li>Especialización en <strong>desarrollo web</strong>: interfaces, portales, dashboards y apps listas para producción.</li>
+          <li>Diseño y construcción de <strong>arquitecturas web</strong>: frontend, backend, datos y automatizaciones.</li>
+          <li>Orientación a <strong>ROI</strong>: eficiencia operativa, menos errores, procesos más predecibles.</li>
+          <li>Formación continua en <strong>IA aplicada</strong> y nuevas tecnologías.</li>
+        </ul>
+        <div class="founder-tags">
+          <span class="founder-tag">Web apps</span>
+          <span class="founder-tag">Automatización</span>
+          <span class="founder-tag">UX / UI</span>
+          <span class="founder-tag">IA aplicada</span>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ===== METODOLOGÍA ===== -->
+  <section class="method-section">
+    <header class="method-header reveal">
+      <h2 class="method-title">Cómo trabajamos</h2>
+      <p class="method-subtitle">
+        Un proceso simple, claro y sin humo. Resultados desde el primer mes.
+      </p>
+    </header>
+
+    <div class="method-steps">
+      <div class="method-step reveal">
+        <div class="method-step-number">01</div>
+        <h3 class="method-step-title">Detectamos el cuello de botella</h3>
+        <p class="method-step-desc">
+          Mapeamos tareas repetitivas, errores típicos y puntos donde se pierde tiempo y dinero.
+        </p>
+      </div>
+
+      <div class="method-step reveal">
+        <div class="method-step-number">02</div>
+        <h3 class="method-step-title">Diseñamos la arquitectura</h3>
+        <p class="method-step-desc">
+          Flujos, datos, integraciones, validaciones y seguridad. Todo claro y documentado.
+        </p>
+      </div>
+
+      <div class="method-step reveal">
+        <div class="method-step-number">03</div>
+        <h3 class="method-step-title">Implementamos y medimos</h3>
+        <p class="method-step-desc">
+          Dejamos funcionando, documentado y con métricas reales de impacto (tiempo, errores, control).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA Final ===== -->
+  <section class="final-cta reveal" aria-labelledby="final-cta-title">
+    <div class="final-cta-content">
+      <h2 class="final-cta-title" id="final-cta-title">¿Querés conocer cómo lo aplicamos a tu negocio?</h2>
+      <p class="final-cta-text">
+        Contanos qué querés automatizar o qué app necesitás.
+        Respondemos rápido y con una propuesta clara.
+      </p>
+      <a href="index.html#contacto" class="final-cta-btn">Hablemos de tu proyecto</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top-line"></div>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="imagenes/logo.png" alt="KAIROX IA" loading="lazy" />
+        <p class="footer-tagline">Agencia de automatización + apps web con IA aplicada.</p>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Síguenos</h4>
+        <div class="footer-social">
+          <a href="mailto:iakairox1@gmail.com?subject=Consulta%20KAIROX%20IA" class="social-icon" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.instagram.com/kairox.ia/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/kairox-ia/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 KAIROX IA. Todos los derechos reservados.</p>
+      <a href="privacidad.html" class="footer-privacy">Política de Privacidad</a>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // ---- Navbar blur ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // ---- Hamburger ----
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMenu(force) {
+      const willOpen = (typeof force === 'boolean') ? force : !mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open', willOpen);
+      hamburger.classList.toggle('open', willOpen);
+      hamburger.setAttribute('aria-expanded', willOpen);
+      document.body.style.overflow = willOpen ? 'hidden' : '';
+    }
+    hamburger.addEventListener('click', () => toggleMenu());
+    mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) toggleMenu(false);
+    });
+
+    // ---- Scroll Reveal ----
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.02, rootMargin: '0px 0px 80px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ---- Spotlight que sigue al mouse en el hero ----
+    const hero = document.querySelector('.hero-equipo');
+    if (hero && window.matchMedia('(pointer: fine)').matches) {
+      hero.addEventListener('mouseenter', () => hero.classList.add('spotlight-on'));
+      hero.addEventListener('mouseleave', () => hero.classList.remove('spotlight-on'));
+      hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        hero.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+        hero.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+      });
+    }
+  </script>
+</body>
+</html>

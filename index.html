@@ -3,8 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="KAIROX IA — Agencia de desarrollo web con IA. Creamos la web de tu negocio. Rápido, profesional y con inteligencia artificial." />
-  <title>KAIROX IA — Desarrollo Web con Inteligencia Artificial</title>
+
+  <!-- ===== SEO ===== -->
+  <title>KAIROX IA — Agencia de Desarrollo Web + Automatización con IA</title>
+  <meta name="description" content="KAIROX IA: agencia de desarrollo web, automatización de procesos e integración de sistemas con inteligencia artificial aplicada. Webs institucionales, landings y apps a medida para comercios y empresas." />
+  <meta name="keywords" content="KAIROX IA, desarrollo web con IA, agencia desarrollo web Argentina, automatización de procesos, integración SAP, integración ERPs, landing page comercio, web institucional, web a medida, apps web, inteligencia artificial aplicada negocios" />
+  <meta name="author" content="KAIROX IA" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://kairox-ia.vercel.app/" />
+
+  <!-- ===== Open Graph (Facebook, LinkedIn, WhatsApp) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KAIROX IA — Desarrollo Web + Automatización con IA" />
+  <meta property="og:description" content="Creamos la web de tu negocio. Automatización, integración de sistemas y apps web a medida con IA aplicada. Rápido, profesional y con propósito." />
+  <meta property="og:url" content="https://kairox-ia.vercel.app/" />
+  <meta property="og:site_name" content="KAIROX IA" />
+  <meta property="og:image" content="https://kairox-ia.vercel.app/Imagenes/logo.png" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- ===== Twitter Cards ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KAIROX IA — Desarrollo Web + Automatización con IA" />
+  <meta name="twitter:description" content="Agencia de desarrollo web, automatización e integración de sistemas con IA aplicada." />
+  <meta name="twitter:image" content="https://kairox-ia.vercel.app/Imagenes/logo.png" />
+
+  <!-- ===== JSON-LD: Organization ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KAIROX IA",
+    "alternateName": "KAIROX",
+    "url": "https://kairox-ia.vercel.app",
+    "logo": "https://kairox-ia.vercel.app/Imagenes/logo.png",
+    "description": "Agencia de desarrollo web, automatización de procesos e integración de sistemas con inteligencia artificial aplicada.",
+    "email": "iakairox1@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/kairox.ia/",
+      "https://www.linkedin.com/company/kairox-ia/"
+    ],
+    "founder": [
+      { "@type": "Person", "name": "Nadia Tecera", "jobTitle": "Co-Fundadora" },
+      { "@type": "Person", "name": "Luciano Banegas", "jobTitle": "Co-Fundador" }
+    ],
+    "areaServed": "AR",
+    "knowsAbout": [
+      "Desarrollo Web",
+      "Automatización de procesos",
+      "Integración SAP",
+      "Inteligencia Artificial aplicada",
+      "Apps Web a medida"
+    ]
+  }
+  </script>
+
+  <!-- ===== JSON-LD: WebSite con SearchAction ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "KAIROX IA",
+    "url": "https://kairox-ia.vercel.app",
+    "inLanguage": "es-AR"
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="Imagenes/logo.png">
@@ -16,7 +78,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" referrerpolicy="no-referrer" />
 
   <style>
     /* =============================================
@@ -77,8 +139,8 @@
     ============================================= */
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform: translateY(16px);
+      transition: opacity 0.35s ease-out, transform 0.35s ease-out;
     }
 
     .reveal.visible {
@@ -86,10 +148,10 @@
       transform: translateY(0);
     }
 
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-1 { transition-delay: 0.05s; }
+    .reveal-delay-2 { transition-delay: 0.10s; }
+    .reveal-delay-3 { transition-delay: 0.15s; }
+    .reveal-delay-4 { transition-delay: 0.20s; }
 
     /* =============================================
        SEPARADORES
@@ -277,7 +339,8 @@
     ============================================= */
     #inicio {
       position: relative;
-      min-height: 100vh;
+      min-height: 100vh;          /* fallback navegadores viejos */
+      min-height: 100svh;         /* mobile: respeta barra del navegador */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -323,7 +386,7 @@
       border-radius: var(--radius-pill);
       margin-bottom: 28px;
       opacity: 0;
-      animation: heroFadeUp 0.7s ease 0.1s forwards;
+      animation: heroFadeUp 0.45s ease-out 0.05s forwards;
     }
 
     .hero-headline {
@@ -334,7 +397,7 @@
       line-height: 1.15;
       margin-bottom: 16px;
       opacity: 0;
-      animation: heroFadeUp 0.7s ease 0.25s forwards;
+      animation: heroFadeUp 0.45s ease-out 0.12s forwards;
     }
 
     .hero-subheadline {
@@ -345,7 +408,7 @@
       margin-bottom: 24px;
       letter-spacing: 0.05em;
       opacity: 0;
-      animation: heroFadeUp 0.7s ease 0.4s forwards;
+      animation: heroFadeUp 0.45s ease-out 0.18s forwards;
     }
 
     .hero-paragraph {
@@ -355,7 +418,7 @@
       line-height: 1.8;
       margin-bottom: 40px;
       opacity: 0;
-      animation: heroFadeUp 0.7s ease 0.55s forwards;
+      animation: heroFadeUp 0.45s ease-out 0.24s forwards;
     }
 
     .hero-buttons {
@@ -364,7 +427,7 @@
       gap: 16px;
       margin-bottom: 40px;
       opacity: 0;
-      animation: heroFadeUp 0.7s ease 0.7s forwards;
+      animation: heroFadeUp 0.45s ease-out 0.30s forwards;
     }
 
     .btn-primary {
@@ -414,7 +477,7 @@
       flex-wrap: wrap;
       gap: 12px;
       opacity: 0;
-      animation: heroFadeUp 0.7s ease 0.85s forwards;
+      animation: heroFadeUp 0.45s ease-out 0.36s forwards;
     }
 
     .badge {
@@ -430,7 +493,7 @@
     @keyframes heroFadeUp {
       from {
         opacity: 0;
-        transform: translateY(22px);
+        transform: translateY(14px);
       }
       to {
         opacity: 1;
@@ -1304,6 +1367,96 @@
       transform: scale(1.04);
     }
 
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: wait;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Fix: [hidden] no se aplica si el elemento tiene display:flex/grid */
+    [hidden] { display: none !important; }
+
+    /* ── Mensaje de éxito tras enviar el formulario ── */
+    .form-success {
+      background: #111111;
+      border: 1px solid rgba(0, 217, 255, 0.35);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 14px 36px rgba(0, 217, 255, 0.12);
+      animation: formSuccessIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    @keyframes formSuccessIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(0, 217, 255, 0.12);
+      border: 2px solid #00d9ff;
+      color: #00d9ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .form-success-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-success-text {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .form-success-btn {
+      display: inline-block;
+      padding: 10px 26px;
+      border: 1.5px solid #00d9ff;
+      color: #00d9ff;
+      background: transparent;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s, transform 0.25s;
+    }
+
+    .form-success-btn:hover {
+      background: #00d9ff;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+    }
+
+    /* ── Mensaje de error inline ── */
+    .form-error {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: rgba(220, 53, 69, 0.08);
+      border: 1px solid rgba(220, 53, 69, 0.45);
+      border-radius: 10px;
+      color: #ff8a95;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
     /* Info de contacto */
     .contact-info-title {
       font-family: var(--font-display);
@@ -1501,11 +1654,37 @@
     }
 
     /* =============================================
-       RESPONSIVE — ajustes menores
+       RESPONSIVE — ajustes principales (tablet / mobile)
     ============================================= */
+
+    /* ── Tablets pequeñas y mobile (≤ 900px) ── */
+    @media (max-width: 900px) {
+      .section-header {
+        margin-bottom: 48px;
+      }
+
+      .service-card,
+      .team-card {
+        padding: 32px 24px;
+      }
+
+      .contact-grid {
+        gap: 40px;
+      }
+    }
+
+    /* ── Mobile (≤ 767px) ── */
     @media (max-width: 767px) {
       section {
-        padding: 80px 5%;
+        padding: 72px 5%;
+      }
+
+      #inicio {
+        padding: 110px 5% 60px;
+      }
+
+      .section-header {
+        margin-bottom: 40px;
       }
 
       .hero-content {
@@ -1513,6 +1692,7 @@
       }
 
       .hero-paragraph {
+        font-size: 1rem;
         margin-left: auto;
         margin-right: auto;
       }
@@ -1537,6 +1717,104 @@
         font-size: 2.8rem;
         min-width: 64px;
         margin-bottom: 0;
+      }
+
+      .team-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+      }
+
+      .footer-content {
+        padding: 56px 5% 32px;
+      }
+    }
+
+    /* ── Mobile chico (≤ 480px — iPhone SE, etc.) ── */
+    @media (max-width: 480px) {
+      section {
+        padding: 60px 5%;
+      }
+
+      #inicio {
+        padding: 100px 5% 50px;
+      }
+
+      .section-header {
+        margin-bottom: 32px;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.78rem;
+        padding: 5px 14px;
+        margin-bottom: 22px;
+      }
+
+      .hero-paragraph {
+        margin-bottom: 32px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
+        text-align: center;
+        padding: 13px 24px;
+      }
+
+      .service-card,
+      .team-card {
+        padding: 26px 20px;
+      }
+
+      .team-avatar {
+        width: 88px;
+        height: 88px;
+        font-size: 2rem;
+      }
+
+      .process-number {
+        font-size: 2.4rem;
+        min-width: 56px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        text-align: center;
+      }
+
+      .form-success {
+        padding: 28px 20px;
+      }
+
+      .cookie-banner {
+        padding: 16px 18px;
+      }
+
+      .testimonial-card {
+        padding: 22px 20px;
+      }
+
+      .testimonial-quote {
+        font-size: 2.6rem;
+      }
+
+      .footer-bottom {
+        padding: 20px 5%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-copy,
+      .footer-privacy {
+        font-size: 0.8rem;
       }
     }
 
@@ -1692,8 +1970,8 @@
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="equipo.html">Equipo</a></li>
       <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
     </ul>
 
@@ -1709,8 +1987,8 @@
     <a href="#inicio" class="mobile-nav-link">Inicio</a>
     <a href="#servicios" class="mobile-nav-link">Servicios</a>
     <a href="#proceso" class="mobile-nav-link">Proceso</a>
-    <a href="#proyectos" class="mobile-nav-link">Proyectos</a>
-    <a href="#equipo" class="mobile-nav-link">Equipo</a>
+    <a href="proyectos.html" class="mobile-nav-link">Proyectos</a>
+    <a href="equipo.html" class="mobile-nav-link">Equipo</a>
     <a href="#contacto" class="mobile-nav-link mobile-cta">Contáctanos</a>
   </div>
 
@@ -1887,215 +2165,6 @@
 
 
   <!-- =============================================
-       PROYECTOS
-  ============================================= -->
-  <section id="proyectos" aria-labelledby="proyectos-title">
-    <div class="section-header">
-      <h2 class="section-title reveal reveal-delay-1" id="proyectos-title">Nuestros proyectos</h2>
-      <p class="section-subtitle reveal reveal-delay-2">
-        Una selección de nuestro trabajo. Más de 8 proyectos adicionales disponibles — consúltanos por tu industria.
-      </p>
-    </div>
-
-    <!-- Showcase carousel -->
-    <div class="showcase-wrapper reveal" id="showcase-wrapper">
-      <div class="showcase-viewport">
-        <div class="showcase-track" id="showcase-track">
-
-          <!-- Card 1 — KAIROX IA Web -->
-          <article class="project-card is-active" data-index="0">
-            <div class="project-image-wrap">
-              <span class="project-badge badge-completed">Completado</span>
-              <img
-                src="Imagenes/Web Kairox.png"
-                alt="KAIROX IA — Web Institucional"
-                class="project-image"
-                loading="lazy"
-              />
-            </div>
-            <div class="project-info">
-              <h3 class="project-info-title">KAIROX IA — Web Institucional</h3>
-              <p class="project-info-desc">
-                Diseño y desarrollo completo de la web corporativa de KAIROX IA. Identidad visual, animaciones y arquitectura moderna.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 2 — KAIROX Gestión -->
-          <article class="project-card" data-index="1">
-            <div class="project-image-wrap">
-              <span class="project-badge badge-progress">En proceso</span>
-              <img
-                src="Imagenes/Kairox-Gestion.png"
-                alt="KAIROX Gestión — Sistema de gestión de clientes"
-                class="project-image"
-                loading="lazy"
-              />
-            </div>
-            <div class="project-info">
-              <h3 class="project-info-title">KAIROX Gestión</h3>
-              <p class="project-info-desc">
-                Sistema de gestión de clientes para registro, seguimiento y organización de información comercial. Optimización de procesos de venta.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 3 — Reinicia tu Foco -->
-          <article class="project-card" data-index="2">
-            <div class="project-image-wrap">
-              <span class="project-badge badge-functional">Funcional</span>
-              <img
-                src="Imagenes/Reinicia tu foco.png"
-                alt="Reinicia tu Foco — Landing"
-                class="project-image"
-                loading="lazy"
-              />
-            </div>
-            <div class="project-info">
-              <h3 class="project-info-title">Reinicia tu Foco</h3>
-              <p class="project-info-desc">
-                Landing que muestra cómo recuperar el control de tu atención en 7 días. Las plataformas digitales están diseñadas para distraerte — esto te devuelve el foco.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 4 — Aurys -->
-          <article class="project-card" data-index="3">
-            <div class="project-image-wrap">
-              <span class="project-badge badge-progress">En proceso</span>
-              <img
-                src="Imagenes/Aurys-App Bienestar.png"
-                alt="Aurys — App de bienestar con IA"
-                class="project-image"
-                loading="lazy"
-              />
-            </div>
-            <div class="project-info">
-              <h3 class="project-info-title">Aurys — App de Bienestar con IA</h3>
-              <p class="project-info-desc">
-                App de bienestar personal con IA para registrar actividades diarias y recibir informes personalizados. Incluye mascota robot interactiva y perfil completamente personalizable.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 5 — Landing Servicios -->
-          <article class="project-card" data-index="4">
-            <div class="project-image-wrap">
-              <span class="project-badge badge-completed">Completado</span>
-              <img
-                src="Imagenes/Landing Servicios y Perfil Profesional.png"
-                alt="Landing — Servicios y Perfil Profesional"
-                class="project-image"
-                loading="lazy"
-              />
-            </div>
-            <div class="project-info">
-              <h3 class="project-info-title">Landing — Servicios y Perfil Profesional</h3>
-              <p class="project-info-desc">
-                Landing diseñada para ofrecer servicios y mostrar perfil profesional. Haz que la gente te conozca y confíe en tu trabajo.
-              </p>
-            </div>
-          </article>
-
-          <!-- Card 6 — Facturador ARCA -->
-          <article class="project-card" data-index="5">
-            <div class="project-image-wrap">
-              <span class="project-badge badge-progress">En proceso</span>
-              <img
-                src="Imagenes/Facturador.png"
-                alt="Sistema de Facturación ARCA"
-                class="project-image"
-                loading="lazy"
-              />
-            </div>
-            <div class="project-info">
-              <h3 class="project-info-title">Sistema de Facturación ARCA</h3>
-              <p class="project-info-desc">
-                Sistema integrado con ARCA para emisión y gestión de comprobantes. Generación de facturas, registro de clientes y automatización contable.
-              </p>
-            </div>
-          </article>
-
-        </div><!-- /showcase-track -->
-      </div><!-- /showcase-viewport -->
-    </div><!-- /showcase-wrapper -->
-
-    <!-- Controles -->
-    <div class="showcase-controls">
-      <button class="showcase-btn" id="showcase-prev" aria-label="Proyecto anterior" disabled>&#8249;</button>
-      <button class="showcase-btn" id="showcase-next" aria-label="Siguiente proyecto">&#8250;</button>
-    </div>
-
-    <!-- Dots -->
-    <div class="showcase-dots" id="showcase-dots" aria-label="Navegación de proyectos"></div>
-
-    <!-- CTA inferior -->
-    <div class="projects-cta reveal">
-      <p class="projects-cta-text">
-        ¿Tienes un proyecto en mente? Cada web que construimos es única.
-      </p>
-      <a href="#contacto" class="projects-cta-btn">Hablemos de tu proyecto</a>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-
-  <!-- =============================================
-       EQUIPO
-  ============================================= -->
-  <section id="equipo" aria-labelledby="equipo-title">
-    <div class="section-header">
-      <span class="section-label reveal">Las personas detrás</span>
-      <h2 class="section-title reveal reveal-delay-1" id="equipo-title">Quiénes somos</h2>
-      <p class="section-subtitle reveal reveal-delay-2">
-        Dos co-fundadores, un mismo objetivo: que tu negocio tenga la presencia digital que merece.
-      </p>
-    </div>
-
-    <div class="team-grid">
-
-      <!-- Nadia -->
-      <article class="team-card reveal reveal-delay-1">
-        <div class="team-avatar" aria-hidden="true">N</div>
-        <h3 class="team-name">Nadia Tecera</h3>
-        <p class="team-role">Co-Fundadora &amp; CEO</p>
-        <p class="team-desc">
-          Especialista en IA aplicada, diseño web y soluciones digitales. Transforma ideas en proyectos funcionales
-          combinando creatividad y tecnología.
-        </p>
-        <div class="team-chips" aria-label="Habilidades de Nadia">
-          <span class="chip">IA Aplicada</span>
-          <span class="chip">Desarrollo Web</span>
-          <span class="chip">UX/UI</span>
-          <span class="chip">Automatización</span>
-        </div>
-      </article>
-
-      <!-- Luciano -->
-      <article class="team-card reveal reveal-delay-2">
-        <div class="team-avatar" aria-hidden="true">L</div>
-        <h3 class="team-name">Luciano Banegas</h3>
-        <p class="team-role">Co-Fundador &amp; CEO</p>
-        <p class="team-desc">
-          Desarrollador y consultor tecnológico con más de 4 años de experiencia en sistemas, automatización
-          y transformación digital.
-        </p>
-        <div class="team-chips" aria-label="Habilidades de Luciano">
-          <span class="chip">Desarrollo Web</span>
-          <span class="chip">Sistemas</span>
-          <span class="chip">Integraciones</span>
-          <span class="chip">IA Aplicada</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-
-  <!-- =============================================
        TESTIMONIOS
   ============================================= -->
   <section id="testimonios" aria-labelledby="testimonios-title">
@@ -2246,11 +2315,23 @@
       <!-- Formulario -->
       <div class="reveal reveal-delay-1">
         <form
+          id="contactForm"
           class="contact-form"
           action="https://formspree.io/f/myzpzzkl"
           method="POST"
           aria-label="Formulario de contacto"
+          autocomplete="on"
         >
+          <!-- Honeypot anti-spam (campo invisible para humanos, atrae bots).
+               Formspree descarta cualquier envío con _gotcha != vacío. -->
+          <input
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none;"
+          />
           <div class="form-group">
             <label for="nombre">Tu nombre</label>
             <input
@@ -2300,12 +2381,25 @@
           <div class="checkbox-row">
             <input type="checkbox" id="privacidad" required aria-required="true" />
             <label for="privacidad">
-              Acepto la <a href="#" target="_blank" rel="noopener">política de privacidad</a>.
+              Acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.
             </label>
           </div>
 
-          <button type="submit" class="btn-submit">Enviar mensaje</button>
+          <button type="submit" class="btn-submit" id="contactSubmitBtn">Enviar mensaje</button>
+
+          <!-- Mensaje de error inline (oculto por defecto) -->
+          <div class="form-error" id="contactError" role="alert" hidden></div>
         </form>
+
+        <!-- Card de éxito (oculta por defecto, aparece tras envío correcto) -->
+        <div class="form-success" id="contactSuccess" role="status" aria-live="polite" hidden>
+          <div class="form-success-icon" aria-hidden="true">✓</div>
+          <h3 class="form-success-title">¡Mensaje enviado!</h3>
+          <p class="form-success-text">
+            Gracias por escribirnos. Recibimos tu consulta y te respondemos en menos de 24 horas.
+          </p>
+          <button type="button" class="form-success-btn" id="contactResetBtn">Enviar otro mensaje</button>
+        </div>
       </div>
 
       <!-- Info de contacto -->
@@ -2386,8 +2480,8 @@
         <ul class="footer-links">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="equipo.html">Equipo</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
@@ -2501,7 +2595,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.02, rootMargin: '0px 0px 80px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
@@ -2767,6 +2861,82 @@
 
       btnAccept.addEventListener('click', acceptAndClose);
       btnEssential.addEventListener('click', acceptAndClose);
+    })();
+
+    // ---- Formulario de contacto (envío AJAX a Formspree) ----
+    (function () {
+      const form       = document.getElementById('contactForm');
+      const submitBtn  = document.getElementById('contactSubmitBtn');
+      const errorBox   = document.getElementById('contactError');
+      const successBox = document.getElementById('contactSuccess');
+      const resetBtn   = document.getElementById('contactResetBtn');
+
+      if (!form || !submitBtn || !errorBox || !successBox || !resetBtn) return;
+
+      const originalBtnText = submitBtn.textContent;
+
+      /* ── Mostrar error ── */
+      function showError(msg) {
+        errorBox.textContent = msg;
+        errorBox.hidden = false;
+      }
+
+      function clearError() {
+        errorBox.hidden = true;
+        errorBox.textContent = '';
+      }
+
+      /* ── Envío del formulario ── */
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearError();
+
+        // Estado "enviando"
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            // Éxito → ocultar form, mostrar card de éxito
+            form.hidden = true;
+            successBox.hidden = false;
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else {
+            // Formspree devolvió un error → intentar leer el detalle
+            const data = await response.json().catch(() => ({}));
+            // Compatible con FormSubmit (data.message) y Formspree (data.errors[])
+            const detail = data.message
+              || (data.errors && data.errors.map(err => err.message).join(', '))
+              || 'No pudimos enviar tu mensaje. Por favor intentá de nuevo.';
+            showError(detail);
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+        } catch (err) {
+          // Error de red (sin conexión, CORS, etc.)
+          showError('Error de conexión. Verificá tu internet e intentá nuevamente.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
+
+      /* ── Botón "Enviar otro mensaje" ── */
+      resetBtn.addEventListener('click', () => {
+        form.reset();
+        successBox.hidden = true;
+        form.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     })();
   </script>
 

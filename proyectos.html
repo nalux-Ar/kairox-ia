@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO ===== -->
+  <title>Proyectos — KAIROX IA · Webs, Sistemas y Apps a Medida</title>
+  <meta name="description" content="Mirá los proyectos desarrollados por KAIROX IA: web institucional, sistemas de gestión, landings, apps de bienestar con IA, sistema de facturación ARCA y más." />
+  <meta name="keywords" content="proyectos KAIROX IA, portfolio desarrollo web, sistemas de gestión, landing page Argentina, app facturación ARCA, web a medida, casos de éxito desarrollo web" />
+  <meta name="author" content="KAIROX IA" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://kairox-ia.vercel.app/proyectos.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Proyectos — KAIROX IA" />
+  <meta property="og:description" content="Una selección de nuestros proyectos: webs institucionales, sistemas de gestión, landings y apps con IA." />
+  <meta property="og:url" content="https://kairox-ia.vercel.app/proyectos.html" />
+  <meta property="og:site_name" content="KAIROX IA" />
+  <meta property="og:image" content="https://kairox-ia.vercel.app/Imagenes/logo.png" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Proyectos — KAIROX IA" />
+  <meta name="twitter:description" content="Una selección de nuestros proyectos web y de automatización." />
+  <meta name="twitter:image" content="https://kairox-ia.vercel.app/Imagenes/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Imagenes/logo.png">
+  <link rel="apple-touch-icon" href="Imagenes/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <style>
+    /* =============================================
+       VARIABLES + RESET
+    ============================================= */
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-card: #111111;
+      --bg-section-alt: #0d0d0d;
+      --accent: #00d9ff;
+      --accent-2: #87CEEB;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --text-muted: #888888;
+      --accent-border: rgba(0, 217, 255, 0.18);
+      --accent-border-hover: rgba(0, 217, 255, 0.55);
+      --font-display: 'Orbitron', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --transition: all 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    [hidden] { display: none !important; }
+
+    /* =============================================
+       NAVBAR (idéntica al resto del sitio)
+    ============================================= */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 5%;
+      background: rgba(10, 10, 10, 0.65);
+      transition: background 0.3s, backdrop-filter 0.3s, border-bottom 0.3s, padding 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    #navbar.scrolled {
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+      padding: 12px 5%;
+    }
+
+    .nav-logo img { height: 40px; width: auto; }
+
+    .nav-links {
+      list-style: none;
+      display: none;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.25s;
+      position: relative;
+    }
+
+    .nav-links a.is-current { color: var(--accent); }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      padding: 9px 22px;
+      border: 1.5px solid var(--accent);
+      border-radius: var(--radius-pill);
+      color: var(--accent) !important;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      color: #0a0a0a !important;
+    }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (min-width: 900px) {
+      .nav-links { display: flex; }
+      .nav-hamburger { display: none; }
+    }
+
+    /* Mobile menu */
+    .nav-mobile {
+      display: none;
+      position: fixed; inset: 0;
+      width: 100%; height: 100vh;
+      background: rgba(5, 5, 5, 0.97);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .mobile-nav-link {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+      transition: color 0.25s;
+    }
+
+    .mobile-nav-link:hover { color: var(--accent); }
+
+    .mobile-nav-link.is-current { color: var(--accent); }
+
+    .mobile-cta {
+      padding: 12px 32px;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      border-radius: var(--radius-pill);
+    }
+
+    /* =============================================
+       PAGE HEADER
+    ============================================= */
+    main {
+      padding: 130px 5% 60px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .page-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .page-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* =============================================
+       SHOWCASE CAROUSEL
+    ============================================= */
+    .showcase-wrapper {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .showcase-viewport {
+      overflow: hidden;
+      padding: 30px 0;
+    }
+
+    .showcase-track {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .project-card {
+      background: #111111;
+      border: 1px solid rgba(0, 217, 255, 0.18);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      flex: 0 0 340px;
+      opacity: 0.5;
+      transform: scale(0.85);
+      transform-origin: center center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition:
+        opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.is-active {
+      opacity: 1;
+      transform: scale(1);
+      border-color: rgba(0, 217, 255, 0.55);
+      box-shadow: 0 22px 50px rgba(0, 217, 255, 0.22);
+      cursor: default;
+    }
+
+    .project-card:not(.is-active):hover {
+      opacity: 0.78;
+      border-color: rgba(0, 217, 255, 0.35);
+    }
+
+    @media (max-width: 900px) {
+      .project-card { flex-basis: 300px; }
+    }
+
+    @media (max-width: 600px) {
+      .project-card { flex-basis: 82%; }
+    }
+
+    .project-image-wrap {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      background: #0a0a0a;
+      transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.is-active .project-image-wrap {
+      height: 260px;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card.is-active:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-completed { background: #00d9ff; color: #0a0a0a; }
+    .badge-progress  { background: transparent; color: #00d9ff; border: 1.5px solid #00d9ff; }
+    .badge-functional{ background: #10b981; color: #ffffff; }
+
+    .project-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-info-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: calc(0.95rem * 1.3 * 2);
+    }
+
+    .project-info-desc {
+      font-size: 0.9rem;
+      color: #b0b0b0;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: calc(0.9rem * 1.5 * 4);
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.is-active .project-info-desc {
+      max-height: calc(0.9rem * 1.5 * 4);
+      opacity: 1;
+    }
+
+    /* Controles */
+    .showcase-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .showcase-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid #00d9ff;
+      background: rgba(0, 217, 255, 0.08);
+      color: #ffffff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, border-color 0.25s, opacity 0.25s;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .showcase-btn:hover:not(:disabled) {
+      background: rgba(0, 217, 255, 0.22);
+      border-color: rgba(0, 217, 255, 0.9);
+    }
+
+    .showcase-btn:disabled {
+      opacity: 0.28;
+      cursor: default;
+      border-color: rgba(0, 217, 255, 0.3);
+    }
+
+    .showcase-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .showcase-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(176, 176, 176, 0.35);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .showcase-dot.active {
+      background: #00d9ff;
+      transform: scale(1.3);
+    }
+
+    /* CTA inferior */
+    .projects-cta {
+      max-width: 720px;
+      margin: 56px auto 0;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .projects-cta-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .projects-cta-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1.5px solid #00d9ff;
+      color: #00d9ff;
+      background: transparent;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .projects-cta-btn:hover {
+      background: #00d9ff;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 217, 255, 0.25);
+    }
+
+    /* =============================================
+       FOOTER (idéntico al resto)
+    ============================================= */
+    footer {
+      background: #050505;
+      margin-top: 80px;
+    }
+
+    .footer-top-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 5% 32px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content { grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+    }
+
+    .footer-brand img { height: 40px; width: auto; margin-bottom: 14px; }
+
+    .footer-tagline {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      transition: color 0.3s, padding-left 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      padding-left: 4px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(0, 217, 255, 0.06);
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.25s;
+    }
+
+    .social-icon:hover {
+      background: rgba(0, 217, 255, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 22px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy,
+    .footer-privacy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-privacy:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      main { padding: 110px 5% 40px; }
+      .footer-bottom { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="nav-logo">
+      <img src="imagenes/logo.png" alt="KAIROX IA — Logo" loading="lazy" />
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#proceso">Proceso</a></li>
+      <li><a href="proyectos.html" class="is-current" aria-current="page">Proyectos</a></li>
+      <li><a href="equipo.html">Equipo</a></li>
+      <li><a href="index.html#contacto" class="nav-cta">Contáctanos</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <a href="index.html#inicio" class="mobile-nav-link">Inicio</a>
+    <a href="index.html#servicios" class="mobile-nav-link">Servicios</a>
+    <a href="index.html#proceso" class="mobile-nav-link">Proceso</a>
+    <a href="proyectos.html" class="mobile-nav-link is-current">Proyectos</a>
+    <a href="equipo.html" class="mobile-nav-link">Equipo</a>
+    <a href="index.html#contacto" class="mobile-nav-link mobile-cta">Contáctanos</a>
+  </div>
+
+  <!-- CONTENIDO -->
+  <main>
+
+    <header class="page-header">
+      <span class="page-eyebrow">Nuestro trabajo</span>
+      <h1 class="page-title">Nuestros proyectos</h1>
+      <p class="page-subtitle">
+        Una selección de nuestro trabajo. Más de 8 proyectos adicionales disponibles — consúltanos por tu industria.
+      </p>
+    </header>
+
+    <!-- Showcase carousel -->
+    <div class="showcase-wrapper" id="showcase-wrapper">
+      <div class="showcase-viewport">
+        <div class="showcase-track" id="showcase-track">
+
+          <article class="project-card is-active" data-index="0">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-completed">Completado</span>
+              <img src="Imagenes/Web Kairox.png" alt="KAIROX IA — Web Institucional" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">KAIROX IA — Web Institucional</h3>
+              <p class="project-info-desc">
+                Diseño y desarrollo completo de la web corporativa de KAIROX IA. Identidad visual, animaciones y arquitectura moderna.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="1">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-progress">En proceso</span>
+              <img src="Imagenes/Kairox-Gestion.png" alt="KAIROX Gestión — Sistema de gestión de clientes" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">KAIROX Gestión</h3>
+              <p class="project-info-desc">
+                Sistema de gestión de clientes para registro, seguimiento y organización de información comercial. Optimización de procesos de venta.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="2">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-functional">Funcional</span>
+              <img src="Imagenes/Reinicia tu foco.png" alt="Reinicia tu Foco — Landing" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Reinicia tu Foco</h3>
+              <p class="project-info-desc">
+                Landing que muestra cómo recuperar el control de tu atención en 7 días. Las plataformas digitales están diseñadas para distraerte — esto te devuelve el foco.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="3">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-progress">En proceso</span>
+              <img src="Imagenes/Aurys-App Bienestar.png" alt="Aurys — App de bienestar con IA" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Aurys — App de Bienestar con IA</h3>
+              <p class="project-info-desc">
+                App de bienestar personal con IA para registrar actividades diarias y recibir informes personalizados. Incluye mascota robot interactiva y perfil completamente personalizable.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="4">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-completed">Completado</span>
+              <img src="Imagenes/Landing Servicios y Perfil Profesional.png" alt="Landing — Servicios y Perfil Profesional" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Landing — Servicios y Perfil Profesional</h3>
+              <p class="project-info-desc">
+                Landing diseñada para ofrecer servicios y mostrar perfil profesional. Haz que la gente te conozca y confíe en tu trabajo.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card" data-index="5">
+            <div class="project-image-wrap">
+              <span class="project-badge badge-progress">En proceso</span>
+              <img src="Imagenes/Facturador.png" alt="Sistema de Facturación ARCA" class="project-image" loading="lazy" />
+            </div>
+            <div class="project-info">
+              <h3 class="project-info-title">Sistema de Facturación ARCA</h3>
+              <p class="project-info-desc">
+                Sistema integrado con ARCA para emisión y gestión de comprobantes. Generación de facturas, registro de clientes y automatización contable.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-controls">
+      <button class="showcase-btn" id="showcase-prev" aria-label="Proyecto anterior" disabled>&#8249;</button>
+      <button class="showcase-btn" id="showcase-next" aria-label="Siguiente proyecto">&#8250;</button>
+    </div>
+
+    <div class="showcase-dots" id="showcase-dots" aria-label="Navegación de proyectos"></div>
+
+    <div class="projects-cta">
+      <p class="projects-cta-text">
+        ¿Tienes un proyecto en mente? Cada web que construimos es única.
+      </p>
+      <a href="index.html#contacto" class="projects-cta-btn">Hablemos de tu proyecto</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top-line"></div>
+
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="imagenes/logo.png" alt="KAIROX IA" loading="lazy" />
+        <p class="footer-tagline">Agencia de desarrollo web con IA.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Síguenos</h4>
+        <div class="footer-social">
+          <a href="mailto:iakairox1@gmail.com?subject=Consulta%20KAIROX%20IA" class="social-icon" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.instagram.com/kairox.ia/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/kairox-ia/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 KAIROX IA. Todos los derechos reservados.</p>
+      <a href="privacidad.html" class="footer-privacy">Política de Privacidad</a>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    // ---- Navbar blur on scroll ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // ---- Hamburger menu ----
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMenu(force) {
+      const willOpen = (typeof force === 'boolean') ? force : !mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open', willOpen);
+      hamburger.classList.toggle('open', willOpen);
+      hamburger.setAttribute('aria-expanded', willOpen);
+      document.body.style.overflow = willOpen ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu());
+    mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) toggleMenu(false);
+    });
+
+    // ---- Showcase carousel ----
+    (function () {
+      const wrapper  = document.getElementById('showcase-wrapper');
+      const track    = document.getElementById('showcase-track');
+      const btnPrev  = document.getElementById('showcase-prev');
+      const btnNext  = document.getElementById('showcase-next');
+      const dotsWrap = document.getElementById('showcase-dots');
+
+      if (!wrapper || !track || !btnPrev || !btnNext || !dotsWrap) return;
+
+      const cards   = Array.from(track.querySelectorAll('.project-card'));
+      const total   = cards.length;
+      let   current = 0;
+
+      function update() {
+        const viewport = wrapper.querySelector('.showcase-viewport');
+        const vpWidth  = viewport.offsetWidth;
+        const card     = cards[current];
+        if (!card) return;
+        const cardLeft  = card.offsetLeft;
+        const cardWidth = card.offsetWidth;
+        const offset    = (vpWidth / 2) - (cardLeft + cardWidth / 2);
+        track.style.transform = `translateX(${offset}px)`;
+
+        cards.forEach((c, i) => {
+          c.classList.toggle('is-active', i === current);
+          c.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+        });
+
+        btnPrev.disabled = (current === 0);
+        btnNext.disabled = (current === total - 1);
+
+        Array.from(dotsWrap.children).forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function goTo(i) {
+        current = Math.max(0, Math.min(i, total - 1));
+        update();
+      }
+
+      cards.forEach((c, i) => {
+        c.addEventListener('click', () => { if (i !== current) goTo(i); });
+      });
+
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'showcase-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Ir al proyecto ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      }
+
+      btnPrev.addEventListener('click', () => goTo(current - 1));
+      btnNext.addEventListener('click', () => goTo(current + 1));
+
+      let touchStartX = 0;
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+      }, { passive: true });
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(update, 120);
+      });
+
+      requestAnimationFrame(() => {
+        update();
+        window.addEventListener('load', update, { once: true });
+      });
+    })();
+  </script>
+</body>
+</html>
