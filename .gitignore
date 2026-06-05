@@ -21,3 +21,5 @@ _tools/
 
 # Backup de imágenes originales sin comprimir (no van al deploy)
 Imagenes/_originales_backup/
+
+.vercel
